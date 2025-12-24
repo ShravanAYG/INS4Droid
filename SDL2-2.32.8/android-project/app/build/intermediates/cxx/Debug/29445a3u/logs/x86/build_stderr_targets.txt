@@ -1,0 +1,4 @@
+/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/YourSourceHere.c:6:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+1 warning generated.

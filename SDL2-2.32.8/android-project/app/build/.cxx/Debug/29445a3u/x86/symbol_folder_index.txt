@@ -1,0 +1,1 @@
+/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86

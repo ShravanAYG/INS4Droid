@@ -1,0 +1,2 @@
+/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk
+/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk

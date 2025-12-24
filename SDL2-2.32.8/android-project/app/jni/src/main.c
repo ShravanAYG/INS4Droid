@@ -1,0 +1,980 @@
+#include <SDL_ttf.h>
+#include <stdio.h>
+#include <pthread.h>
+#include <stdbool.h>
+#include <netinet/in.h>
+#include <stdlib.h>
+#include <strings.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#ifdef __ANDROID__
+#include <sys/stat.h>
+#endif
+
+const int nameWrapWidth = 200;
+const int lineSpacing = 8;
+const int datOffset = 350;
+const int drawableOff = 200;
+SDL_Color Blue = { 0, 255, 200, 255 };
+SDL_Color Blue2 = { 80, 0, 255, 255 };
+SDL_Color Yellow = { 128, 255, 255, 255 };
+SDL_Color Gray = { 80, 80, 80, 255 };
+SDL_Color Gray2 = { 30, 30, 30, 255 };
+SDL_Color Red = { 255, 80, 80, 255 };
+SDL_Color White = { 255, 255, 255, 255 };
+SDL_Rect btnStandard = { 0, 0, 250, 80 };
+double accel[3] = { 0 }, gyro[3] = { 0 };
+
+double north;
+int zerod = 0;
+
+static pthread_mutex_t fontMutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t northMutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t accelMutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t zerodMutex = PTHREAD_MUTEX_INITIALIZER;
+
+enum btnType { btnTypeNorm, btnTypeClose, btnTypeDisabled };
+
+struct con1 {
+	int fd, n, sfd;
+	char *buf;
+	struct sockaddr_in *cli;
+	socklen_t *len;
+};
+
+struct ThreadArgs {
+	SDL_Rect datDispBox;
+	SDL_Sensor **sensors;
+	int numSensors;
+	TTF_Font *font;
+	struct con1 *con;
+};
+
+static Uint32 pixfmt;
+
+static SDL_Surface *getSensorSurface(SDL_Rect datDispBox, SDL_Sensor **sensors,
+				     int numSensors, TTF_Font *font,
+				     struct con1 *con)
+{
+	SDL_Surface *dataSur =
+	    SDL_CreateRGBSurfaceWithFormat(0, datDispBox.w, 950, 32, pixfmt);
+	SDL_FillRect(dataSur, NULL, SDL_MapRGB(dataSur->format, 32, 32, 32));
+
+	int yPos = 20, mi = 0;
+
+	for (int i = 0; i < numSensors; i++) {
+		if (!sensors[i])
+			continue;
+
+		const char *name = SDL_SensorGetName(sensors[i]);
+		if (!name)
+			name = "Unknown Sensor";
+
+		float data[3] = { 0 };
+		SDL_SensorGetData(sensors[i], data, 3);
+
+		char dataText[64];
+		snprintf(dataText, sizeof(dataText), "%.2f, %.2f, %.2f",
+			 data[0], data[1], data[2]);
+
+		pthread_mutex_lock(&fontMutex);
+		SDL_Surface *nameSurf =
+		    (font ? TTF_RenderUTF8_Blended_Wrapped(font, name, Yellow,
+							   nameWrapWidth) :
+		     NULL);
+		SDL_Surface *dataSurf =
+		    (font ? TTF_RenderUTF8_Blended(font, dataText, Blue) :
+		     NULL);
+		pthread_mutex_unlock(&fontMutex);
+
+		if (nameSurf && dataSurf) {
+			SDL_Rect nameDst =
+			    { 20, yPos, nameSurf->w, nameSurf->h };
+			SDL_BlitSurface(nameSurf, NULL, dataSur, &nameDst);
+
+			SDL_Rect dataDst =
+			    { datOffset, yPos, dataSurf->w, dataSurf->h };
+			SDL_BlitSurface(dataSurf, NULL, dataSur, &dataDst);
+
+			int blockHeight =
+			    (nameSurf->h >
+			     dataSurf->h) ? nameSurf->h : dataSurf->h;
+			yPos += blockHeight + lineSpacing;
+
+			SDL_Rect sepLine = { 0, yPos, dataSur->w, 1 };
+			SDL_FillRect(dataSur, &sepLine,
+				     SDL_MapRGB(dataSur->format, 200, 200,
+						200));
+			yPos += 4;
+		}
+
+		if (nameSurf)
+			SDL_FreeSurface(nameSurf);
+		if (dataSurf)
+			SDL_FreeSurface(dataSurf);
+	}
+	float data[3] = { 0 };
+	SDL_SensorGetData(sensors[1], data, 3);
+
+	float mx = data[0];
+	float my = data[1];
+
+	float heading = (atan2f(my, mx) * 180.0f / M_PI) + 90.0f;
+	//if (heading < 0) heading += 360.0f;
+
+	pthread_mutex_lock(&northMutex);
+	north = heading;	// store compass heading in degrees
+	pthread_mutex_unlock(&northMutex);
+
+	SDL_SensorGetData(sensors[0], data, 3);
+	pthread_mutex_lock(&accelMutex);
+	accel[0] = data[0];
+	accel[1] = data[1];
+	accel[2] = data[2];
+	SDL_SensorGetData(sensors[2], data, 3);
+	gyro[0] = data[0];
+	gyro[1] = data[1];
+	gyro[2] = data[2];
+	pthread_mutex_unlock(&accelMutex);
+
+	SDL_Rect divLine = {.x = nameWrapWidth + 50,.y = 0,.w = 1,.h =
+		    dataSur->h
+	};
+	SDL_FillRect(dataSur, &divLine,
+		     SDL_MapRGB(dataSur->format, 200, 200, 200));
+	return dataSur;
+}
+
+static SDL_Surface *latestSurface = NULL;
+static pthread_mutex_t surfMutex = PTHREAD_MUTEX_INITIALIZER;
+static bool running = true;
+
+static void *sensorThread(void *arg)
+{
+	struct ThreadArgs *args = (struct ThreadArgs *)arg;
+	signal(SIGPIPE, SIG_IGN);
+	struct con1 *con = args->con;
+	uint64_t t = 0;
+
+	while (running) {
+		con->fd =
+		    accept(con->sfd, (struct sockaddr *)con->cli, con->len);
+		if (con->fd < 0) {
+			if (!running)
+				break;
+			continue;
+		}
+
+		while (running) {
+			char buff[256];
+			pthread_mutex_lock(&northMutex);
+			pthread_mutex_lock(&accelMutex);
+			double angle = north;
+			snprintf(buff, sizeof(buff),
+				 "%llu [ANGLE: %f], [ACC: %f, %f, %f], [GYRO: %f, %f, %f]\n",
+				 t, angle, accel[0], accel[1], accel[2],
+				 gyro[0], gyro[1], gyro[2]);
+			pthread_mutex_unlock(&accelMutex);
+			pthread_mutex_unlock(&northMutex);
+
+			ssize_t sent = write(con->fd, buff, strlen(buff));
+			if (sent <= 0) {
+				close(con->fd);
+				con->fd = -1;
+				break;
+			}
+
+			printf("Sent %ld bytes\n", sent);
+
+			SDL_Surface *surf = getSensorSurface(args->datDispBox,
+							     args->sensors,
+							     args->numSensors,
+							     args->font,
+							     con);
+			pthread_mutex_lock(&surfMutex);
+			if (latestSurface)
+				SDL_FreeSurface(latestSurface);
+			latestSurface = surf;
+			pthread_mutex_unlock(&surfMutex);
+			usleep(35000);
+			t++;
+		}
+
+		if (con->fd >= 0) {
+			close(con->fd);
+			con->fd = -1;
+		}
+	}
+
+	free(args);
+	return NULL;
+}
+
+static bool copyAssetToInternal(const char *assetName, char outPath[],
+				size_t outPathLen)
+{
+	const char *base = SDL_AndroidGetInternalStoragePath();
+	if (!base) {
+		SDL_Log("Internal storage path not available");
+		return false;
+	}
+	char dirPath[1024];
+	SDL_snprintf(dirPath, sizeof(dirPath), "%s/fonts", base);
+	SDL_RWops *tmp = SDL_RWFromFile(dirPath, "rb");
+	if (!tmp) {
+		mkdir(dirPath, 0700);
+	} else {
+		SDL_RWclose(tmp);
+	}
+
+	SDL_snprintf(outPath, outPathLen, "%s/fonts/%s", base, assetName);
+
+	SDL_RWops *check = SDL_RWFromFile(outPath, "rb");
+
+	SDL_RWops *in = SDL_RWFromFile(assetName, "rb");
+
+	SDL_RWops *out = SDL_RWFromFile(outPath, "wb");
+
+	char buf[8192];
+	size_t n;
+	bool ok = true;
+	while ((n = SDL_RWread(in, buf, 1, sizeof(buf))) > 0) {
+		if (SDL_RWwrite(out, buf, 1, n) != n) {
+			ok = false;
+			break;
+		}
+	}
+
+	SDL_RWclose(in);
+	SDL_RWclose(out);
+
+	return true;
+}
+
+static TTF_Font *openFontPortable(const char *name, int ptsize)
+{
+	char fontPath[1024];
+	if (copyAssetToInternal(name, fontPath, sizeof(fontPath))) {
+		TTF_Font *f = TTF_OpenFont(fontPath, ptsize);
+		return f;
+	}
+	const char *fallback = "/system/fonts/Roboto-Regular.ttf";
+	TTF_Font *f = TTF_OpenFont(fallback, ptsize);
+	return f;
+}
+
+static SDL_Texture *createBtnTexture(SDL_Renderer *ren, const char *text,
+				     TTF_Font *font, enum btnType b)
+{
+	SDL_Surface *sur =
+	    SDL_CreateRGBSurfaceWithFormat(0, btnStandard.w, btnStandard.h, 32,
+					   pixfmt);
+	if (!sur)
+		return NULL;
+	SDL_Color FG = Yellow;
+	SDL_Color BG = Gray;
+	// background
+	if (b == btnTypeNorm) {
+		FG = Yellow;
+		BG = Gray;
+	} else if (b == btnTypeClose) {
+		FG = White;
+		BG = Red;
+	} else if (b == btnTypeDisabled) {
+		FG = Yellow;
+		BG = Gray2;
+	}
+	SDL_FillRect(sur, NULL, SDL_MapRGB(sur->format, BG.r, BG.g, BG.b));
+
+	if (font && text && *text) {
+		pthread_mutex_lock(&fontMutex);
+		SDL_Surface *nameSurf = TTF_RenderUTF8_Blended(font, text, FG);
+		pthread_mutex_unlock(&fontMutex);
+		if (!nameSurf) {
+			SDL_Log("TTF_RenderUTF8_Blended failed: %s",
+				TTF_GetError());
+		} else {
+			int pad = 12;
+			SDL_Rect dst;
+			dst.x = (btnStandard.w - nameSurf->w) / 2;
+			dst.y = (btnStandard.h - nameSurf->h) / 2;
+
+			if (nameSurf->w <= (btnStandard.w - pad)
+			    && nameSurf->h <= (btnStandard.h - pad)) {
+				if (dst.x < pad / 2)
+					dst.x = pad / 2;
+				if (dst.y < pad / 2)
+					dst.y = pad / 2;
+				SDL_BlitSurface(nameSurf, NULL, sur, &dst);
+			} else {
+				float scaleX =
+				    (float)(btnStandard.w -
+					    pad) / (float)nameSurf->w;
+				float scaleY =
+				    (float)(btnStandard.h -
+					    pad) / (float)nameSurf->h;
+				float s = (scaleX < scaleY) ? scaleX : scaleY;
+				int w = (int)(nameSurf->w * s);
+				int h = (int)(nameSurf->h * s);
+				SDL_Rect sdst = { (btnStandard.w - w) / 2,
+					(btnStandard.h - h) / 2, w, h
+				};
+				SDL_BlitScaled(nameSurf, NULL, sur, &sdst);
+			}
+			SDL_FreeSurface(nameSurf);
+		}
+	}
+
+	SDL_Texture *tex = SDL_CreateTextureFromSurface(ren, sur);
+	SDL_FreeSurface(sur);
+	return tex;
+}
+
+static void putPixel(SDL_Surface *surface, int x, int y, Uint32 color)
+{
+	if (x < 0 || x >= surface->w || y < 0 || y >= surface->h)
+		return;
+
+	Uint32 *pixels = (Uint32 *) surface->pixels;
+	pixels[(y * surface->w) + x] = color;
+}
+
+static void drawLine(SDL_Surface *surface, SDL_Point p0, SDL_Point p1,
+		     Uint32 color)
+{
+	int x0 = p0.x;
+	int y0 = p0.y;
+	int x1 = p1.x;
+	int y1 = p1.y;
+
+	int dx = abs(x1 - x0);
+	int sx = x0 < x1 ? 1 : -1;
+	int dy = -abs(y1 - y0);
+	int sy = y0 < y1 ? 1 : -1;
+	int err = dx + dy;
+	int e2;
+
+	while (1) {
+		putPixel(surface, x0, y0, color);
+
+		if (x0 == x1 && y0 == y1)
+			break;
+
+		e2 = 2 * err;
+		if (e2 >= dy) {
+			err += dy;
+			x0 += sx;
+		}
+		if (e2 <= dx) {
+			err += dx;
+			y0 += sy;
+		}
+	}
+}
+
+static SDL_Surface *getCompassSurface(SDL_Rect db, TTF_Font *font, double angle)
+{
+	int radius = (db.h / 2) - 10;
+	SDL_Surface *dataSur =
+	    SDL_CreateRGBSurfaceWithFormat(0, db.w, db.h, 32, pixfmt);
+
+	SDL_FillRect(dataSur, NULL, SDL_MapRGB(dataSur->format, 32, 32, 32));
+
+	Uint32 white = SDL_MapRGB(dataSur->format, 255, 255, 255);
+
+	int centreX = db.w / 2;
+	int centreY = db.h / 2;
+
+	const int32_t diameter = (radius * 2);
+
+	int32_t x = (radius - 1);
+	int32_t y = 0;
+	int32_t tx = 1;
+	int32_t ty = 1;
+	int32_t error = (tx - diameter);
+
+	while (x >= y) {
+		putPixel(dataSur, centreX + x, centreY - y, white);
+		putPixel(dataSur, centreX + x, centreY + y, white);
+		putPixel(dataSur, centreX - x, centreY - y, white);
+		putPixel(dataSur, centreX - x, centreY + y, white);
+		putPixel(dataSur, centreX + y, centreY - x, white);
+		putPixel(dataSur, centreX + y, centreY + x, white);
+		putPixel(dataSur, centreX - y, centreY - x, white);
+		putPixel(dataSur, centreX - y, centreY + x, white);
+
+		if (error <= 0) {
+			++y;
+			error += ty;
+			ty += 2;
+		}
+
+		if (error > 0) {
+			--x;
+			tx += 2;
+			error += (tx - diameter);
+		}
+	}
+	char s[256];
+	sprintf(s, "Angle: %0.3f", angle);
+	SDL_Surface *nameSurf =
+	    (font ? TTF_RenderUTF8_Blended_Wrapped(font, s, Yellow,
+						   nameWrapWidth) : NULL);
+
+	SDL_Point center = { centreX, centreY };
+	SDL_Point b1 = {
+		(int)(20 * cos((M_PI / 180) * (angle + 90)) + center.x),
+		(int)(-20 * sin((M_PI / 180) * (angle + 90)) + center.y)
+	};
+	SDL_Point b2 = {
+		(int)(20 * cos((M_PI / 180) * (angle - 90)) + center.x),
+		(int)(-20 * sin((M_PI / 180) * (angle - 90)) + center.y)
+	};
+	SDL_Point p1 = {
+		(int)(0.95 * radius * cos((M_PI / 180) * angle) + center.x),
+		(int)(-0.95 * radius * sin((M_PI / 180) * angle) + center.y)
+	};
+
+	Uint32 red_color = SDL_MapRGB(dataSur->format, Red.r, Red.g, Red.b);
+	drawLine(dataSur, b1, b2, red_color);
+	for (int i = 0; i < 8; i++) {
+		SDL_Point a1 =
+		    { (int)((20 - i) * cos((M_PI / 180) * (angle + 90)) +
+			    center.x),
+			(int)(-(20 - i) * sin((M_PI / 180) * (angle + 90)) +
+			      center.y)
+		}, a2 =
+		    { (int)((20 - i) * cos((M_PI / 180) * (angle - 90)) +
+			    center.x),
+			(int)(-(20 - i) * sin((M_PI / 180) * (angle - 90)) +
+			      center.y)
+		};
+		drawLine(dataSur, a1, p1, red_color);
+		drawLine(dataSur, a2, p1, red_color);
+	}
+	if (nameSurf) {
+		SDL_Rect nameDst =
+		    { center.x - nameSurf->w / 2, center.y + 50, nameSurf->w,
+			nameSurf->h
+		};
+		SDL_BlitSurface(nameSurf, NULL, dataSur, &nameDst);
+	}
+
+	if (nameSurf)
+		SDL_FreeSurface(nameSurf);
+
+	return dataSur;
+}
+
+double s1 = 0, s2 = 0, s3 = 0;
+
+static SDL_Surface *getAccelSurface(SDL_Rect db, TTF_Font *font)
+{
+	SDL_Surface *dataSur =
+	    SDL_CreateRGBSurfaceWithFormat(0, db.w, db.h, 32, pixfmt);
+	SDL_FillRect(dataSur, NULL, SDL_MapRGB(dataSur->format, 32, 32, 32));
+
+	int centreX = db.w / 2;
+	int centreY = db.h / 2;
+
+	char s[256], d[256];
+	pthread_mutex_lock(&accelMutex);
+
+	double ax = accel[0] - s1;
+	double ay = accel[1] - s2;
+	double az = accel[2] - s3;
+	double r = sqrt(ax * ax + ay * ay + az * az);
+	pthread_mutex_lock(&zerodMutex);
+	if (zerod) {
+		s1 = ax;
+		s2 = ay;
+		s3 = az;
+		zerod = 0;
+	}
+	pthread_mutex_unlock(&zerodMutex);
+
+	double theta = (r == 0) ? 0 : acos(az / r) * 180.0 / M_PI;
+	double phi = atan2(ay, ax) * 180.0 / M_PI;
+
+	sprintf(s, "Accel: X:%0.2f Y:%0.2f Z:%0.2f", ax, ay, az);
+	sprintf(d, "AZI: %0.2f°, ZEN: %0.2f°", phi, theta);
+
+	pthread_mutex_unlock(&accelMutex);
+
+	SDL_Surface *nameSurf =
+	    (font ? TTF_RenderUTF8_Blended(font, s, Yellow) : NULL);
+	SDL_Surface *aziSurf =
+	    (font ? TTF_RenderUTF8_Blended_Wrapped(font, d, Yellow, 300) :
+	     NULL);
+
+	SDL_Rect nameDst = { (centreX - nameSurf->w / 2), 10,
+		nameSurf->w, nameSurf->h
+	};
+	SDL_Rect aziDst = { nameDst.x, nameDst.y + nameDst.h + 5,
+		aziSurf->w, aziSurf->h
+	};
+
+	if (nameSurf && aziSurf) {
+		SDL_BlitSurface(nameSurf, NULL, dataSur, &nameDst);
+		SDL_BlitSurface(aziSurf, NULL, dataSur, &aziDst);
+	}
+	SDL_Point center = { centreX, (db.h + aziDst.y + aziDst.h) / 2 };
+
+	int lineLen = 50;	// fixed radius length for display
+	SDL_Point a1 = { center.x - 20, center.y };
+	SDL_Point a2 = { center.x + 20, center.y };
+	SDL_Point a4 = { center.x - 20, center.y - 20 };
+	SDL_Point a3 = { center.x + 20, center.y - 20 };
+	SDL_Point p1 = {
+		(int)(center.x + (r > 0 ? (ax / r) * lineLen : 0)),
+		(int)(center.y - (r > 0 ? (ay / r) * lineLen : 0) -
+		      (r > 0 ? (az / r) * 0.5 * lineLen : 0))
+	};
+
+	Uint32 red_color = SDL_MapRGB(dataSur->format, Red.r, Red.g, Red.b);
+	drawLine(dataSur, a1, a2, red_color);
+	drawLine(dataSur, a2, a3, red_color);
+	drawLine(dataSur, a3, a4, red_color);
+	drawLine(dataSur, a4, a1, red_color);
+	drawLine(dataSur, a1, p1, red_color);
+	drawLine(dataSur, a2, p1, red_color);
+	drawLine(dataSur, a3, p1, red_color);
+	drawLine(dataSur, a4, p1, red_color);
+
+	if (nameSurf)
+		SDL_FreeSurface(nameSurf);
+	if (aziSurf)
+		SDL_FreeSurface(aziSurf);
+
+	return dataSur;
+}
+
+int SDL_main(int argc, char *argv[])
+{
+	SDL_SetHint(SDL_HINT_TOUCH_MOUSE_EVENTS, "1");
+	running = true;
+
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_SENSOR) != 0) {
+		SDL_Log("SDL_Init failed: %s", SDL_GetError());
+		return 1;
+	}
+	if (TTF_Init() != 0) {
+		SDL_Log("TTF_Init failed: %s", TTF_GetError());
+		return 1;
+	}
+
+	SDL_Window *win = SDL_CreateWindow("SDL Sensors",
+					   SDL_WINDOWPOS_UNDEFINED,
+					   SDL_WINDOWPOS_UNDEFINED,
+					   0, 0, SDL_WINDOW_FULLSCREEN);
+	if (!win) {
+		SDL_Log("CreateWindow failed: %s", SDL_GetError());
+		return 1;
+	}
+
+	SDL_Renderer *ren = SDL_CreateRenderer(win, -1,
+					       SDL_RENDERER_ACCELERATED |
+					       SDL_RENDERER_PRESENTVSYNC);
+
+	pixfmt = SDL_GetWindowPixelFormat(win);
+
+	// ---- Font (Android-safe) ----
+	TTF_Font *font = openFontPortable("sans.ttf", 16);
+
+	int winW, winH, mx, my;
+	SDL_GetWindowSize(win, &winW, &winH);
+	int numSensors = SDL_NumSensors();
+	SDL_Sensor *sensors[numSensors];
+	for (int i = 0; i < numSensors; i++) {
+		sensors[i] = SDL_SensorOpen(i);	// may be NULL for restricted sensors
+	}
+	SDL_Rect datDispBox = (SDL_Rect) { 100, drawableOff + 10, 800, 600 };
+	SDL_Rect datDispBoxScrl = (SDL_Rect) datDispBox;
+	datDispBoxScrl.x = 0;
+	datDispBoxScrl.y = 0;
+	int sockfd;
+	struct sockaddr_in servaddr, cli;
+	socklen_t len = sizeof(cli);
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	int opt = 1;
+	setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+	bzero(&servaddr, sizeof(servaddr));
+	servaddr.sin_family = AF_INET;
+	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	servaddr.sin_port = htons(6969);
+	if (bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
+		perror("bind");
+		close(sockfd);
+		return 1;
+	}
+	listen(sockfd, 5);
+	struct con1 *c = malloc(sizeof(struct con1));
+	c->fd = -1;
+	c->buf = NULL;
+	c->n = 0;
+	c->cli = &cli;
+	c->len = &len;
+	c->sfd = sockfd;
+	struct ThreadArgs *args = malloc(sizeof(struct ThreadArgs));
+	*args = (struct ThreadArgs) {
+		.datDispBox = datDispBox,
+		.sensors = sensors,
+		.numSensors = numSensors,
+		.font = font,
+		.con = c	// not &c
+	};
+	SDL_Texture *btnScrollTex =
+	    createBtnTexture(ren, "Scroll Up", font, btnTypeNorm);
+	SDL_Texture *btnScrollDownTex =
+	    createBtnTexture(ren, "Scroll Down", font, btnTypeNorm);
+	SDL_Texture *btnReposTex =
+	    createBtnTexture(ren, "Position", font, btnTypeNorm);
+	SDL_Texture *btnClsTex =
+	    createBtnTexture(ren, "Close", font, btnTypeClose);
+	SDL_Texture *btnZerodTex =
+	    createBtnTexture(ren, "Zero", font, btnTypeNorm);
+	SDL_Rect btnScrollPos = btnStandard;
+	btnScrollPos.x = 50;
+	btnScrollPos.y = 50;
+	SDL_Rect btnScrollDownPos = btnStandard;
+	btnScrollDownPos.x = btnScrollPos.x + btnScrollPos.w + 20;
+	btnScrollDownPos.y = 50;
+	SDL_Rect btnReposPos = btnStandard;
+	btnReposPos.x = btnScrollDownPos.x + btnScrollDownPos.w + 20;
+	btnReposPos.y = 50;
+	SDL_Rect btnZeroPos = btnStandard;
+	btnZeroPos.x = btnReposPos.x + btnReposPos.w + 20;
+	btnZeroPos.y = 50;
+	SDL_Rect btnClsPos = btnStandard;
+	btnClsPos.x = winW - 350;
+	btnClsPos.y = 50;
+	SDL_Surface *fntNmSur =
+	    TTF_RenderText_Blended(font, TTF_FontFaceFamilyName(font), Blue2);
+	SDL_Texture *fntName = SDL_CreateTextureFromSurface(ren, fntNmSur);
+	SDL_TouchID t2 = SDL_GetTouchDevice(2);
+
+	pthread_t tid;
+	if (pthread_create(&tid, NULL, sensorThread, args) != 0) {
+		SDL_Log("pthread_create failed");
+		return 1;
+	}
+
+	int quit = 0;
+	int winMoving = 0;
+	int winScrolling = 0, btnReposPressed = 0;
+	SDL_Event e;
+	char s[256];
+	int compassSize = 300;
+	SDL_Rect compassDispBox =
+	    { datDispBox.x + datDispBox.w + 50, datDispBox.y, compassSize,
+		compassSize
+	};
+	SDL_Rect accelDispBox =
+	    { compassDispBox.x + compassDispBox.w + 50, compassDispBox.y, 500,
+		200
+	};
+
+	int scrollUpHeld = 0;
+	int scrollDownHeld = 0;
+
+	int Sabove = 1, Cabove = 0, first = 10000;
+
+	while (!quit) {
+		while (SDL_PollEvent(&e)) {
+			switch (e.type) {
+			case SDL_QUIT:
+				quit = 1;
+				break;
+
+			case SDL_FINGERDOWN:{
+					int tx = (int)(e.tfinger.x * winW);
+					int ty = (int)(e.tfinger.y * winH);
+
+					if (((tx < datDispBox.x
+					      || ty < datDispBox.y
+					      || tx >
+					      (datDispBox.x + datDispBox.w)
+					      || ty >
+					      (datDispBox.y + datDispBox.h))
+					     && ty > drawableOff) && Sabove) {
+						winMoving = 1;
+						winScrolling = 0;
+					} else if (tx >= datDispBox.x
+						   && tx <=
+						   (datDispBox.x + datDispBox.w)
+						   && ty >= datDispBox.y
+						   && ty <=
+						   (datDispBox.y + datDispBox.h)
+						   && ty > drawableOff) {
+						winScrolling = 1;
+						winMoving = 0;
+						Cabove = 0;
+						Sabove = 1;
+					}
+					if (((tx < compassDispBox.x
+					      || ty < compassDispBox.y
+					      || tx >
+					      (compassDispBox.x +
+					       compassDispBox.w)
+					      || ty >
+					      (compassDispBox.y +
+					       compassDispBox.h))
+					     && ty > drawableOff) && Cabove) {
+						winMoving = 1;
+					} else if (tx >= compassDispBox.x
+						   && tx <=
+						   (compassDispBox.x +
+						    compassDispBox.w)
+						   && ty >= compassDispBox.y
+						   && ty <=
+						   (compassDispBox.y +
+						    compassDispBox.h)
+						   && ty > drawableOff) {
+						winMoving = 0;
+						Sabove = 0;
+						Cabove = 1;
+					}
+					if (tx >= btnClsPos.x
+					    && tx <= (btnClsPos.x + btnClsPos.w)
+					    && ty >= btnClsPos.y
+					    && ty <=
+					    (btnClsPos.y + btnClsPos.h)) {
+						quit = 1;
+					}
+
+					if (tx >= btnZeroPos.x
+					    && tx <=
+					    (btnZeroPos.x + btnZeroPos.w)
+					    && ty >= btnZeroPos.y
+					    && ty <=
+					    (btnZeroPos.y + btnZeroPos.h)) {
+						pthread_mutex_lock(&zerodMutex);
+						zerod = 1;
+						pthread_mutex_unlock
+						    (&zerodMutex);
+					}
+
+					if (tx >= btnScrollPos.x
+					    && tx <=
+					    (btnScrollPos.x + btnScrollPos.w)
+					    && ty >= btnScrollPos.y
+					    && ty <=
+					    (btnScrollPos.y + btnScrollPos.h)) {
+						scrollUpHeld = 1;
+					}
+
+					if (tx >= btnScrollDownPos.x
+					    && tx <=
+					    (btnScrollDownPos.x +
+					     btnScrollDownPos.w)
+					    && ty >= btnScrollDownPos.y
+					    && ty <=
+					    (btnScrollDownPos.y +
+					     btnScrollDownPos.h)) {
+						scrollDownHeld = 1;
+					}
+
+					if (tx >= btnReposPos.x
+					    && tx <=
+					    (btnReposPos.x + btnReposPos.w)
+					    && ty >= btnReposPos.y
+					    && ty <=
+					    (btnReposPos.y + btnReposPos.h)) {
+						datDispBox.y = drawableOff + 10;
+						datDispBox.x = 100;
+						compassDispBox.y = datDispBox.y;
+						compassDispBox.x =
+						    datDispBox.x +
+						    datDispBox.w + 3;
+					}
+				}
+				break;
+
+			case SDL_FINGERUP:
+				winMoving = 0;
+				winScrolling = 0;
+				scrollUpHeld = 0;
+				scrollDownHeld = 0;
+				break;
+
+			case SDL_FINGERMOTION:{
+
+					int tx = (int)(e.tfinger.x * winW);
+					int ty = (int)(e.tfinger.y * winH);
+					if (winMoving) {
+						if (Sabove) {
+							datDispBox.x = tx;
+							datDispBox.y = ty;
+						} else if (Cabove) {
+							compassDispBox.x = tx;
+							compassDispBox.y = ty;
+						}
+					} else if (winScrolling) {
+						int dy =
+						    (int)(e.tfinger.dy * winH);
+
+						pthread_mutex_lock(&surfMutex);
+						if (dy > 0
+						    && datDispBoxScrl.y > 0) {
+							datDispBoxScrl.y -= 5;
+							if (datDispBoxScrl.y <
+							    0)
+								datDispBoxScrl.y
+								    = 0;
+						} else if (dy < 0
+							   && datDispBoxScrl.y +
+							   datDispBoxScrl.h <
+							   latestSurface->h) {
+							datDispBoxScrl.y += 5;
+							int maxY =
+							    (latestSurface->h -
+							     datDispBoxScrl.h);
+							if (datDispBoxScrl.y >
+							    maxY)
+								datDispBoxScrl.y
+								    = maxY;
+						}
+						pthread_mutex_unlock
+						    (&surfMutex);
+					}
+				}
+				break;
+			}
+		}
+
+		if (scrollUpHeld) {
+			pthread_mutex_lock(&surfMutex);
+			if (datDispBoxScrl.y > 0) {
+				datDispBoxScrl.y -= 10;
+				if (datDispBoxScrl.y < 0)
+					datDispBoxScrl.y = 0;
+			}
+			pthread_mutex_unlock(&surfMutex);
+		}
+		if (scrollDownHeld) {
+			pthread_mutex_lock(&surfMutex);
+			if (datDispBoxScrl.y + datDispBoxScrl.h <
+			    latestSurface->h) {
+				datDispBoxScrl.y += 10;
+				int maxY =
+				    (latestSurface->h - datDispBoxScrl.h);
+				if (datDispBoxScrl.y > maxY)
+					datDispBoxScrl.y = maxY;
+			}
+			pthread_mutex_unlock(&surfMutex);
+		}
+		SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
+		SDL_RenderClear(ren);
+
+		char buff[1256];
+		pthread_mutex_lock(&northMutex);
+		double angle = north;
+		pthread_mutex_unlock(&northMutex);
+		SDL_Texture *txDat = NULL;
+		pthread_mutex_lock(&surfMutex);
+		pthread_mutex_lock(&fontMutex);
+		SDL_Surface *cmpSur =
+		    getCompassSurface(compassDispBox, font, angle);
+		SDL_Surface *accSur = getAccelSurface(accelDispBox, font);
+		pthread_mutex_unlock(&fontMutex);
+		SDL_Texture *cmpTex = SDL_CreateTextureFromSurface(ren, cmpSur);
+		SDL_Texture *accTex = SDL_CreateTextureFromSurface(ren, accSur);
+		SDL_FreeSurface(cmpSur);
+		SDL_FreeSurface(accSur);
+
+		if (latestSurface) {
+			txDat =
+			    SDL_CreateTextureFromSurface(ren, latestSurface);
+		}
+		pthread_mutex_unlock(&surfMutex);
+
+		if (txDat && cmpTex) {
+			if (Sabove) {
+				SDL_RenderCopy(ren, cmpTex, NULL,
+					       &compassDispBox);
+				SDL_RenderCopy(ren, txDat, &datDispBoxScrl,
+					       &datDispBox);
+				SDL_RenderCopy(ren, accTex, NULL,
+					       &accelDispBox);
+				SDL_SetRenderDrawColor(ren, 0, 255, 0, 255);
+				SDL_RenderDrawRect(ren, &datDispBox);
+				SDL_SetRenderDrawColor(ren, 0, 46, 0, 255);
+				SDL_RenderDrawRect(ren, &compassDispBox);
+				first = 0;
+			} else if (Cabove) {
+				SDL_RenderCopy(ren, txDat, &datDispBoxScrl,
+					       &datDispBox);
+				SDL_RenderCopy(ren, cmpTex, NULL,
+					       &compassDispBox);
+				SDL_RenderCopy(ren, accTex, NULL,
+					       &accelDispBox);
+				SDL_SetRenderDrawColor(ren, 0, 255, 0, 255);
+				SDL_RenderDrawRect(ren, &compassDispBox);
+				SDL_SetRenderDrawColor(ren, 0, 46, 0, 255);
+				SDL_RenderDrawRect(ren, &datDispBox);
+			}
+			SDL_DestroyTexture(txDat);
+			SDL_DestroyTexture(cmpTex);
+			SDL_DestroyTexture(accTex);
+		}
+		int atTop = (datDispBoxScrl.y <= 0);
+		int atBottom = (latestSurface
+				&& (datDispBoxScrl.y + datDispBoxScrl.h >=
+				    latestSurface->h));
+		SDL_SetTextureAlphaMod(btnScrollTex, atTop ? 100 : 255);
+		SDL_SetTextureAlphaMod(btnScrollDownTex, atBottom ? 100 : 255);
+
+		if (btnScrollTex && btnClsTex && btnScrollDownTex
+		    && btnReposTex) {
+			SDL_RenderCopy(ren, btnScrollTex, NULL, &btnScrollPos);
+			SDL_RenderCopy(ren, btnScrollDownTex, NULL,
+				       &btnScrollDownPos);
+			SDL_RenderCopy(ren, btnClsTex, NULL, &btnClsPos);
+			SDL_RenderCopy(ren, btnReposTex, NULL, &btnReposPos);
+			SDL_RenderCopy(ren, btnZerodTex, NULL, &btnZeroPos);
+
+			SDL_Rect fnNamePos =
+			    { winW - 300, winH - 50, fntNmSur->w, fntNmSur->h };
+			SDL_RenderCopy(ren, fntName, NULL, &fnNamePos);
+		}
+		SDL_SetRenderDrawColor(ren, 128, 128, 64, 255);
+		SDL_RenderDrawLine(ren, 0, drawableOff, winW, drawableOff);
+
+		SDL_RenderPresent(ren);
+		SDL_Delay(5);
+	}
+
+	running = false;
+	shutdown(sockfd, SHUT_RDWR);
+	pthread_join(tid, NULL);
+	pthread_mutex_lock(&surfMutex);
+	if (latestSurface) {
+		SDL_FreeSurface(latestSurface);
+		latestSurface = NULL;
+	}
+	pthread_mutex_unlock(&surfMutex);
+
+	if (btnScrollTex && btnClsTex && btnScrollDownTex && btnReposTex
+	    && btnZerodTex) {
+		SDL_DestroyTexture(btnScrollTex);
+		SDL_DestroyTexture(btnScrollDownTex);
+		SDL_DestroyTexture(btnClsTex);
+		SDL_DestroyTexture(btnReposTex);
+		SDL_DestroyTexture(fntName);
+		SDL_DestroyTexture(btnZerodTex);
+	}
+
+	SDL_FreeSurface(fntNmSur);
+	for (int i = 0; i < numSensors; i++) {
+		if (sensors[i])
+			SDL_SensorClose(sensors[i]);
+	}
+	TTF_CloseFont(font);
+
+	SDL_DestroyRenderer(ren);
+	SDL_DestroyWindow(win);
+	TTF_Quit();
+	SDL_Quit();
+	close(sockfd);
+	return 0;
+}

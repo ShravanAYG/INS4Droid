@@ -1,0 +1,4 @@
+#Sun Nov 30 16:36:39 IST 2025
+base.0=/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
