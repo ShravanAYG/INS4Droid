@@ -2,6 +2,8 @@
 
 **INS4Droid** is a **lightweight, high-performance inertial navigation system (INS)** for Android that uses **built-in device sensors** to track position **without GNSS, GSM, Wi-Fi, or network connectivity**.
 
+<img src="Screenshot.jpg"/>
+
 The system relies on an **initial frame of reference** and performs real-time inertial dead-reckoning using accelerometer and gyroscope data.  
 It is implemented in **C with SDL2**, prioritizing speed, efficiency, and minimal overhead.
 
