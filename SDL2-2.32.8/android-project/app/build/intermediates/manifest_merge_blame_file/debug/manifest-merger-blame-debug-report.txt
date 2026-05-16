@@ -77,83 +77,89 @@
 60    <uses-permission android:name="android.permission.VIBRATE" />
 60-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:49:5-66
 60-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:49:22-63
-61
-62    <!-- if you want to capture audio, uncomment this. -->
-63    <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
-64    <!--
-65 Create a Java class extending SDLActivity and place it in a
-66         directory under app/src/main/java matching the package, e.g. app/src/main/java/com/gamemaker/game/MyGame.java
-67 
-68         then replace "SDLActivity" with the name of your class (e.g. "MyGame")
-69         in the XML below.
-70
-71         An example Java class can be found in README-android.md
-72    -->
-73    <application
-73-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:62:5-98:19
-74        android:allowBackup="true"
-74-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:9-35
-75        android:debuggable="true"
-76        android:extractNativeLibs="true"
-77        android:hardwareAccelerated="true"
-77-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:66:9-43
-78        android:icon="@mipmap/ic_launcher"
-78-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:63:9-43
-79        android:label="@string/app_name"
-79-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:62:18-50
-80        android:testOnly="true"
-81        android:theme="@style/AppTheme" >
-81-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:65:9-40
-82
-83        <!--
-84        Example of setting SDL hints from AndroidManifest.xml:
-85        <meta-data android:name="SDL_ENV.SDL_ACCELEROMETER_AS_JOYSTICK" android:value="0"/>
-86        -->
-87
-88        <activity
-88-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:72:9-97:20
-89            android:name="org.libsdl.app.SDLActivity"
-89-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:72:19-45
-90            android:alwaysRetainTaskState="true"
-90-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:74:13-49
-91            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
-91-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:77:13-156
-92            android:exported="true"
-92-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:79:13-36
-93            android:label="@string/app_name"
-93-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:73:13-45
-94            android:launchMode="singleInstance"
-94-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:75:13-48
-95            android:preferMinimalPostProcessing="true"
-95-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:78:13-55
-96            android:screenOrientation="landscape" >
-96-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:76:13-50
-97            <intent-filter>
-97-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:81:13-84:29
-98                <action android:name="android.intent.action.MAIN" />
-98-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:82:17-69
-98-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:82:25-66
-99
-100                <category android:name="android.intent.category.LAUNCHER" />
-100-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:83:17-77
-100-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:83:27-74
-101            </intent-filter>
-102            <!-- Let Android know that we can handle some USB devices and should receive this event -->
-103            <intent-filter>
-103-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:86:13-88:29
-104                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-104-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:87:17-90
-104-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:87:25-87
-105            </intent-filter>
-106            <!-- Drop file event -->
-107            <!--
-108            <intent-filter>
-109                <action android:name="android.intent.action.VIEW" />
-110                <category android:name="android.intent.category.DEFAULT" />
-111                <data android:mimeType="*/*" />
-112            </intent-filter>
-113            -->
-114        </activity>
-115    </application>
-116
-117</manifest>
+61    <uses-permission android:name="android.permission.INTERNET" />
+61-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:50:5-67
+61-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:50:22-64
+62    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+62-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:51:5-79
+62-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:51:22-76
+63
+64    <!-- if you want to capture audio, uncomment this. -->
+65    <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
+66    <!--
+67 Create a Java class extending SDLActivity and place it in a
+68         directory under app/src/main/java matching the package, e.g. app/src/main/java/com/gamemaker/game/MyGame.java
+69 
+70         then replace "SDLActivity" with the name of your class (e.g. "MyGame")
+71         in the XML below.
+72
+73         An example Java class can be found in README-android.md
+74    -->
+75    <application
+75-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:5-100:19
+76        android:allowBackup="true"
+76-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:66:9-35
+77        android:debuggable="true"
+78        android:extractNativeLibs="true"
+79        android:hardwareAccelerated="true"
+79-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:68:9-43
+80        android:icon="@mipmap/ic_launcher"
+80-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:65:9-43
+81        android:label="@string/app_name"
+81-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:18-50
+82        android:testOnly="true"
+83        android:theme="@style/AppTheme" >
+83-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:67:9-40
+84
+85        <!--
+86        Example of setting SDL hints from AndroidManifest.xml:
+87        <meta-data android:name="SDL_ENV.SDL_ACCELEROMETER_AS_JOYSTICK" android:value="0"/>
+88        -->
+89
+90        <activity
+90-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:74:9-99:20
+91            android:name="org.libsdl.app.SDLActivity"
+91-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:74:19-45
+92            android:alwaysRetainTaskState="true"
+92-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:76:13-49
+93            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+93-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:79:13-156
+94            android:exported="true"
+94-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:81:13-36
+95            android:label="@string/app_name"
+95-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:75:13-45
+96            android:launchMode="singleInstance"
+96-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:77:13-48
+97            android:preferMinimalPostProcessing="true"
+97-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:80:13-55
+98            android:screenOrientation="sensorLandscape" >
+98-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:78:13-56
+99            <intent-filter>
+99-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:83:13-86:29
+100                <action android:name="android.intent.action.MAIN" />
+100-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:84:17-69
+100-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:84:25-66
+101
+102                <category android:name="android.intent.category.LAUNCHER" />
+102-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:85:17-77
+102-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:85:27-74
+103            </intent-filter>
+104            <!-- Let Android know that we can handle some USB devices and should receive this event -->
+105            <intent-filter>
+105-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:88:13-90:29
+106                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+106-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:89:17-90
+106-->/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:89:25-87
+107            </intent-filter>
+108            <!-- Drop file event -->
+109            <!--
+110            <intent-filter>
+111                <action android:name="android.intent.action.VIEW" />
+112                <category android:name="android.intent.category.DEFAULT" />
+113                <data android:mimeType="*/*" />
+114            </intent-filter>
+115            -->
+116        </activity>
+117    </application>
+118
+119</manifest>

@@ -70,6 +70,44 @@
       "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libmain.so",
       "runtimeFiles": []
     },
+    "SDL2_ttf-debug-x86": {
+      "artifactName": "SDL2_ttf",
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003dx86",
+        "NDK_ALL_ABIS\u003dx86",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libSDL2_ttf.so"
+      ],
+      "abi": "x86",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libSDL2_ttf.so",
+      "runtimeFiles": []
+    },
+    "harfbuzz-debug-x86": {
+      "artifactName": "harfbuzz",
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003dx86",
+        "NDK_ALL_ABIS\u003dx86",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libharfbuzz.a"
+      ],
+      "abi": "x86",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libharfbuzz.a",
+      "runtimeFiles": []
+    },
     "cpufeatures-debug-x86": {
       "artifactName": "cpufeatures",
       "buildCommandComponents": [
@@ -87,6 +125,25 @@
       ],
       "abi": "x86",
       "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libcpufeatures.a",
+      "runtimeFiles": []
+    },
+    "freetype-debug-x86": {
+      "artifactName": "freetype",
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003dx86",
+        "NDK_ALL_ABIS\u003dx86",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libfreetype.a"
+      ],
+      "abi": "x86",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/x86/libfreetype.a",
       "runtimeFiles": []
     }
   }

@@ -1,3 +1,4 @@
 make: Nothing to be done for 'SDL2'.
-[armeabi-v7a] Compile thumb  : main <= YourSourceHere.c
+make: Nothing to be done for 'SDL2_ttf'.
+[armeabi-v7a] Compile thumb  : main <= main.c
 [armeabi-v7a] SharedLibrary  : libmain.so

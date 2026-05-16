@@ -32,6 +32,25 @@
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
+    "SDL2_ttf-debug-armeabi-v7a": {
+      "artifactName": "SDL2_ttf",
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003darmeabi-v7a",
+        "NDK_ALL_ABIS\u003darmeabi-v7a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libSDL2_ttf.so"
+      ],
+      "abi": "armeabi-v7a",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libSDL2_ttf.so",
+      "runtimeFiles": []
+    },
     "main-debug-armeabi-v7a": {
       "artifactName": "main",
       "buildCommandComponents": [
@@ -68,6 +87,44 @@
       ],
       "abi": "armeabi-v7a",
       "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libSDL2.so",
+      "runtimeFiles": []
+    },
+    "harfbuzz-debug-armeabi-v7a": {
+      "artifactName": "harfbuzz",
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003darmeabi-v7a",
+        "NDK_ALL_ABIS\u003darmeabi-v7a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libharfbuzz.a"
+      ],
+      "abi": "armeabi-v7a",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libharfbuzz.a",
+      "runtimeFiles": []
+    },
+    "freetype-debug-armeabi-v7a": {
+      "artifactName": "freetype",
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003darmeabi-v7a",
+        "NDK_ALL_ABIS\u003darmeabi-v7a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libfreetype.a"
+      ],
+      "abi": "armeabi-v7a",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/armeabi-v7a/libfreetype.a",
       "runtimeFiles": []
     },
     "cpufeatures-debug-armeabi-v7a": {

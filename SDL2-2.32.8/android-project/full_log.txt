@@ -1,0 +1,630 @@
+--------- beginning of system
+05-16 16:43:53.491  1759  1835 D MARsPolicyManager: triggerAction called!
+--------- beginning of main
+05-16 16:43:53.491  1759  1835 I NSLocationMonitor: getGPSUsingApps() called
+05-16 16:43:53.493  3092  3108 I NSLocationManager_FLP: getGPSUsingApps, No change
+05-16 16:43:53.505  1759  1835 D FreecessController: skip lev freeze com.discord(10328)RL
+05-16 16:43:53.513  1759  1835 D FreecessController: FZ : ml.docilealligator.infinityforreddit(10338) [28162] reason: LEV
+05-16 16:43:53.513  1759  3130 W LocationManagerService: onFreezeStateChanged, uid[10338]=true
+05-16 16:43:53.513  1759  3130 I PowerManagerService: [PWL] SetWakeLockEnableDisable uid = 10338 , disable= true
+05-16 16:43:53.513  1759  3130 I PowerManagerService: [PWL] can not change uid =  10338
+05-16 16:43:53.518  1759  3080 D FreecessController: UFZ : ml.docilealligator.infinityforreddit(10338) [28162] reason: Binder(0)
+05-16 16:43:53.518  1759  3130 W LocationManagerService: onFreezeStateChanged, uid[10338]=false
+05-16 16:43:53.518  1759  3130 I PowerManagerService: [PWL] SetWakeLockEnableDisable uid = 10338 , disable= false
+05-16 16:43:53.518  1759  3130 I PowerManagerService: [PWL] can not change uid =  10338
+05-16 16:43:53.519  1759  3082 D ActivityManager: unpendingScheduleServiceRestart: u=10338, drop=false
+05-16 16:43:53.609  1759  1802 I SemDvfsHyPerManager: acquire hyper - APP_LAUNCH/1759@600, type = -999
+05-16 16:43:53.609  1759  6224 D ActivityTaskManager: startActivityAsUser: callingPid=27451, callingUid=2000, caller=com.android.server.am.ActivityManagerService.startActivityAsUserWithFeature:28 com.android.server.am.ActivityManagerShellCommand.runStartActivity:569 com.android.server.am.ActivityManagerShellCommand.onCommand:1865 com.android.modules.utils.BasicShellCommandHandler.exec:97 android.os.ShellCommand.exec:38 com.android.server.am.ActivityManagerService.onShellCommand:169 android.os.Binder.shellCommand:1266 
+05-16 16:43:53.610  1124  1170 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 2784220  [1759 / 600]    HINT : APP_LAUNCH    list : 
+05-16 16:43:53.610  1759  6224 W ActivityTaskManager: callingPackage for (uid=2000, pid=27451) has no WPC
+05-16 16:43:53.611  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.611  1759  6224 D ActivityTaskManager: TaskLaunchParamsModifier:task=null activity=null display-area-from-current-params=null display-area-from-default-fallback=DefaultTaskDisplayArea_d0@237673320 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@237673320
+05-16 16:43:53.611  4254  4254 I SemDvfsHyPerManager: acquire hyper - APP_START_SHORT/4254@14, type = -999
+05-16 16:43:53.612  1124  1170 I mtkpower_client: ret_hdl:46909
+05-16 16:43:53.612  1759  6224 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_ORIENTATION_OVERRIDE
+05-16 16:43:53.612  1132  1163 I libPowerHal: [perfLockAcq] idx:1 hdl:46909 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46909
+05-16 16:43:53.613  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.614  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:300c000, param:15
+05-16 16:43:53.615  1759  6224 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 10467, packageName = null, attributionTag = null, token = android.os.Binder@52fe6a, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+05-16 16:43:53.615  1124  1170 I mtkpower_client: ret_hdl:46910
+05-16 16:43:53.616  1132  1163 I libPowerHal: [perfLockAcq] idx:2 hdl:46910 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46910
+05-16 16:43:53.616  1132  1163 I libPowerHal: [set_cpuidle] enable:0, fd:15, scn:0xb400007864ab0d10
+05-16 16:43:53.616  1759  6224 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES
+05-16 16:43:53.616  1132  1163 I libPowerHal: [get_cpu_dma_latency_value] 0
+05-16 16:43:53.616  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:1c3c100 param:0
+05-16 16:43:53.617  1759  6224 W OptProp : Cannot read opt property android.window.PROPERTY_COMPAT_ALLOW_MIN_ASPECT_RATIO_OVERRIDE
+05-16 16:43:53.618  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.618  1759  6224 D WindowManager: Transition is created, t=TransitionRecord{54aa92b id=-1 type=OPEN flags=0x0}, caller=com.android.server.wm.Transition.<init>:170 com.android.server.wm.ActivityStarter.startActivityUnchecked:330 com.android.server.wm.ActivityStarter.executeRequest:3397 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 
+05-16 16:43:53.618  1759  6224 D BLASTSyncEngine: SyncGroup is created, id=3713, name=Transition-OPEN, caller=com.android.server.wm.BLASTSyncEngine$SyncGroup.<init>:51 com.android.server.wm.TransitionController.moveToCollecting:78 com.android.server.wm.ActivityStarter.startActivityUnchecked:333 com.android.server.wm.ActivityStarter.executeRequest:3397 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 com.android.server.am.ActivityManagerService.startActivityAsUserWithFeature:28 
+05-16 16:43:53.619  1759  6224 W BLASTSyncEngine: setSyncMethod, id=3713, method=0, caller=com.android.server.wm.TransitionController.moveToCollecting:90 com.android.server.wm.ActivityStarter.startActivityUnchecked:333 com.android.server.wm.ActivityStarter.executeRequest:3397 
+05-16 16:43:53.619  1759  6224 V WindowManager: Start collecting in Transition: TransitionRecord{54aa92b id=3713 type=OPEN flags=0x0}, caller=com.android.server.wm.ActivityStarter.startActivityUnchecked:333 com.android.server.wm.ActivityStarter.executeRequest:3397 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 com.android.server.am.ActivityManagerService.startActivityAsUserWithFeature:28 
+05-16 16:43:53.619  1759  6224 V WindowManager: Collecting in transition 3713: ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity, caller=com.android.server.wm.TransitionController.collect:7 com.android.server.wm.ActivityStarter.startActivityUnchecked:626 com.android.server.wm.ActivityStarter.executeRequest:3397 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 
+05-16 16:43:53.619  1124  1170 I mtkpower_client: ret_hdl:46911
+05-16 16:43:53.620  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.620  1132  1163 I libPowerHal: [perfLockAcq] idx:3 hdl:46911 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46911
+05-16 16:43:53.620  1132  1163 I libPowerHal: [setClusterFreq] vendor.samsung. set cpufreq[0] min:2000000 max:-1 cpufreq[1] min:-1 max:-1 
+05-16 16:43:53.620  1759  6224 D ActivityTaskManager: TaskLaunchParamsModifier:task=null activity=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t-1} display-area-from-current-params=null display-area-from-default-fallback=DefaultTaskDisplayArea_d0@237673320 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@237673320
+05-16 16:43:53.620  1132  1163 I libPowerHal: [setClusterFreq]  set cpu_ctrl cpufreq: 2000000 -1 -1 -1 
+05-16 16:43:53.620  1759  6224 D ActivityTaskManager: TaskLaunchParamsModifier:task=null activity=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t-1} display-area-from-current-params=null display-area-from-default-fallback=DefaultTaskDisplayArea_d0@237673320 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@237673320 non-freeform-task-display-area display-area=DefaultTaskDisplayArea_d0@237673320 activity-requested-landscape freeform-size-mismatch=Rect(81, 557 - 999, 1727)
+05-16 16:43:53.622  1124  1170 I mtkpower_client: ret_hdl:46912
+05-16 16:43:53.622  1124  1170 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 9110060  [4254 / 14]    HINT : APP_START    list : [TIMEOUT / 1500] 
+05-16 16:43:53.623  1132  1163 I libPowerHal: [perfLockAcq] idx:4 hdl:46912 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46912
+05-16 16:43:53.623  1132  1163 I libPowerHal: [setDvfsrcDevFreqOpp] opp:0, freq:4266000000
+05-16 16:43:53.623  1159  2820 I BufferQueueDebug: [Task=5071#46904](this:0xb400006f846eccb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:53.624  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:1000000 param:0
+05-16 16:43:53.625  1159  2820 I SurfaceFlinger: id=46904 createSurf, flag=24004, Task=5071#46904
+05-16 16:43:53.625  1759  6224 D ActivityTaskManager: Top Process State changed to PROCESS_STATE_TOP_SLEEPING#2
+05-16 16:43:53.626  1759  6224 D ActivityTaskManager: TaskLaunchParamsModifier:task=Task{c755721 #5071 type=standard A=10467:org.libsdl.app} activity=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t-1} display-from-task=0 display-id=0 task-display-area-windowing-mode=1 suggested-display-area=DefaultTaskDisplayArea_d0@237673320 inherit-from-task=fullscreen non-freeform-task-display-area display-area=DefaultTaskDisplayArea_d0@237673320 activity-requested-landscape freeform-size-mismatch=Rect(81, 557 - 999, 1727)
+05-16 16:43:53.626  1759  6224 V WindowManager: Collecting in transition 3713: Task{c755721 #5071 type=standard A=10467:org.libsdl.app}, caller=com.android.server.wm.Transition.collectExistenceChange:42 com.android.server.wm.ActivityStarter.setNewTask:43 com.android.server.wm.ActivityStarter.startActivityInner:2088 com.android.server.wm.ActivityStarter.startActivityUnchecked:639 com.android.server.wm.ActivityStarter.executeRequest:3397 
+05-16 16:43:53.627  1159  2820 I BufferQueueDebug: [ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}#46905](this:0xb400006f84718cb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:53.627  1159  2820 I SurfaceFlinger: id=46905 createSurf, flag=84004, ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}#46905
+05-16 16:43:53.628  1759  6224 D ActivityTaskManager: Temporarily retain top process state for launching app
+05-16 16:43:53.628  1759  6224 V WindowManager: Checking theme of starting window: 0x7f040000
+05-16 16:43:53.628  1759  6224 V WindowManager: Translucent=false Floating=false ShowWallpaper=false Disable=false
+05-16 16:43:53.628  1759  6224 D ActivityTaskManager: addStartingWindow: type=2 typeParameter=8b
+05-16 16:43:53.628  1759  6224 V WindowManager: Creating SplashScreenStartingData
+05-16 16:43:53.628  1759  6224 V WindowManager: Add starting ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}: startingData=SplashScreenStartingData{b48ad07 waitForSyncTransactionCommit=false removeAfterTransaction= 0}
+05-16 16:43:53.629  1759  6224 V WindowManager: Added starting ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}: startingWindow=null startingView=com.android.server.wm.StartingSurfaceController$StartingSurface@d13fe34
+05-16 16:43:53.630  1759  6224 I AppsFilter: interaction: PackageSetting{bdd8adb com.example.sldtest/10423} -> PackageSetting{92f445d org.libsdl.app/10467} BLOCKED
+05-16 16:43:53.630  1759  6224 I AppsFilter: interaction: PackageSetting{bd7c851 com.example.cammltel/10433} -> PackageSetting{92f445d org.libsdl.app/10467} BLOCKED
+05-16 16:43:53.630  1759  6224 I AppsFilter: interaction: PackageSetting{98f28b6 com.example.curltest4/10422} -> PackageSetting{92f445d org.libsdl.app/10467} BLOCKED
+05-16 16:43:53.630  1759  6224 I AppsFilter: interaction: PackageSetting{31ff9b7 com.snackoverflow.newps/10440} -> PackageSetting{92f445d org.libsdl.app/10467} BLOCKED
+05-16 16:43:53.630  1759  6224 I AppsFilter: interaction: PackageSetting{d3d4524 com.snackoverflow.Ayurveda/10430} -> PackageSetting{92f445d org.libsdl.app/10467} BLOCKED
+05-16 16:43:53.630  1759  6224 I AppsFilter: interaction: PackageSetting{bff988d com.example.xmltuto/10417} -> PackageSetting{92f445d org.libsdl.app/10467} BLOCKED
+05-16 16:43:53.630  1759  6224 D WindowManager: App launched activity=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}, state=1
+05-16 16:43:53.631  1759  6224 V WindowManager: Collecting in transition 3713: ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}, caller=com.android.server.wm.Transition.collectExistenceChange:42 com.android.server.wm.ActivityStarter.handleStartResult:523 com.android.server.wm.ActivityStarter.startActivityUnchecked:653 com.android.server.wm.ActivityStarter.executeRequest:3397 com.android.server.wm.ActivityStarter.execute:1122 
+05-16 16:43:53.631  1759  6224 V WindowManager: Requesting StartTransition: TransitionRecord{54aa92b id=3713 type=OPEN flags=0x0}, caller=com.android.server.wm.ActivityStarter.handleStartResult:677 com.android.server.wm.ActivityStarter.startActivityUnchecked:653 com.android.server.wm.ActivityStarter.executeRequest:3397 com.android.server.wm.ActivityStarter.execute:1122 com.android.server.wm.ActivityTaskManagerService.startActivityAsUser:88 
+05-16 16:43:53.632  1759  6224 I Pageboost: stop alp
+05-16 16:43:53.632  1759  6224 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=org.libsdl.app/.SDLActivity} with LAUNCH_SINGLE_INSTANCE from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+05-16 16:43:53.632  1759  6224 I SemDvfsHyPerManager: acquire hyper - AMS_APP_LAUNCH/1759@14, type = -999
+05-16 16:43:53.632  1124  1170 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 1572665  [1759 / 14]    HINT : AMS_APP_LAUNCH    list : 
+05-16 16:43:53.632  1159  1159 I BufferQueueProducer: [FramebufferSurface](this:0xb400006fb9ca26d0,id:-1,api:1,p:1159,c:1159) queueBuffer: fps=0.43 dur=2301.77 max=2301.77 min=2301.77
+05-16 16:43:53.633  1124  1170 I mtkpower_client: perf_lock_rel, hdl:46909, tid:1170
+05-16 16:43:53.633  1115  1115 I hwcomposer: [HWCDisplay] [Display_0 (type:1, mode:2)] fps:0.434519,dur:2301.40,max:2301.40,min:2301.40  
+05-16 16:43:53.633  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.633  1132  1163 I libPowerHal: [perfLockRel] hdl:46909, idx:1
+05-16 16:43:53.633  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:300c000 param:0
+05-16 16:43:53.633  4254  4254 I SemDvfsHyPerManager: acquire hyper - APP_START/4254@16, type = -999
+05-16 16:43:53.634  1124  1170 I mtkpower_client: ret_hdl:46913
+05-16 16:43:53.634  1132  1163 I libPowerHal: [perfLockAcq] idx:5 hdl:46913 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46913
+05-16 16:43:53.634  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:300c000, param:15
+05-16 16:43:53.634  1124  1170 I mtkpower_client: perf_lock_rel, hdl:46910, tid:1170
+05-16 16:43:53.635  2361  2399 V WindowManagerShell: Transition requested (#3713): android.os.BinderProxy@bf49b85 TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=5071 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=org.libsdl.app/.SDLActivity } baseActivity=ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity} topActivity=ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity} origActivity=null realActivity=ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity} numActivities=1 lastActiveTime=611389363 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 maxWidth=-1 maxHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@c66edda} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 80 - 0, 0) topActivityInfo=ActivityInfo{4e7e20b org.libsdl.app.SDLActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=true topActivityInSizeCompat=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isTopActivityStyleFloating=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 topActivityLetterboxAppWidth=1080 topActivityLetterboxAppHeight=2125 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive} topActivityBounds=null topActivityInDisplayCompat=false} originallySupportedMultiWindow=true hasWallpaper=false rootAffinity=10467:org.libsdl.app isTopTaskInStage=false topActivityUiMode=33 CoverLauncherWidgetTask=false isAllowedSeamlessRotation=false isTopTransparentActivity=false snappingGuideBounds=null isAliasManaged=false hasConfigChanged=false isAiKeyRemoveAppTask=false}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 3713 }
+05-16 16:43:53.635  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.635  1132  1163 I libPowerHal: [perfLockRel] hdl:46910, idx:2
+05-16 16:43:53.636  1132  1163 I libPowerHal: [set_cpuidle] enable:1, fd:15, scn:0xb400007864ab0d10
+05-16 16:43:53.636  1759  6224 V WindowManager: Starting Transition 3713, caller=com.android.server.wm.WindowOrganizerController.startTransition:37 com.android.server.wm.WindowOrganizerController.startTransition:1 android.window.IWindowOrganizerController$Stub.onTransact:271 
+05-16 16:43:53.636  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:1c3c100 param:1
+05-16 16:43:53.636  1124  1170 I mtkpower_client: ret_hdl:46914
+05-16 16:43:53.636  1124  1170 I mtkpower_client: perf_lock_rel, hdl:46911, tid:1170
+05-16 16:43:53.636  1132  1163 I libPowerHal: [perfLockAcq] idx:1 hdl:46914 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46914
+05-16 16:43:53.636  1159  2820 D SurfaceFlinger: [SF client] NEW(0xb400006fb9c81f00) for (2361:com.android.systemui)
+05-16 16:43:53.636  1132  1163 I libPowerHal: [set_cpuidle] enable:0, fd:15, scn:0xb400007864aafd28
+05-16 16:43:53.636  1132  1163 I libPowerHal: [get_cpu_dma_latency_value] 0
+05-16 16:43:53.637  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:1c3c100 param:0
+05-16 16:43:53.637  1132  1163 I libPowerHal: [perfLockRel] hdl:46911, idx:3
+05-16 16:43:53.637  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.637  1132  1163 I libPowerHal: [setClusterFreq]  set cpu_ctrl cpufreq: -1 -1 -1 -1 
+05-16 16:43:53.638  1124  1170 I mtkpower_client: ret_hdl:46915
+05-16 16:43:53.638  1132  1163 I libPowerHal: [perfLockAcq] idx:2 hdl:46915 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46915
+05-16 16:43:53.638  1132  1163 I libPowerHal: [setClusterFreq] vendor.samsung. set cpufreq[0] min:2000000 max:-1 cpufreq[1] min:-1 max:-1 
+05-16 16:43:53.638  1132  1163 I libPowerHal: [setClusterFreq]  set cpu_ctrl cpufreq: 2000000 -1 -1 -1 
+05-16 16:43:53.638  3135  3135 E pageboostd: Received HALT command code 2
+05-16 16:43:53.638  1124  1170 I mtkpower_client: perf_lock_rel, hdl:46912, tid:1170
+05-16 16:43:53.639  1124  1170 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:1170
+05-16 16:43:53.639  2361  2407 I ViewRootImpl: dVRR is disabled
+05-16 16:43:53.639  1759  1789 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 10467, packageName = null, attributionTag = null, token = android.os.Binder@52fe6a, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+05-16 16:43:53.639  1132  1163 I libPowerHal: [perfLockRel] hdl:46912, idx:4
+05-16 16:43:53.640  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:1000000 param:-1
+05-16 16:43:53.640  1124  1170 I mtkpower_client: ret_hdl:46916
+05-16 16:43:53.640  1132  1163 I libPowerHal: [perfLockAcq] idx:3 hdl:46916 hint:-1 pid:1124 tid:1170 duration:0 lock_user:vendor.samsung. => ret_hdl:46916
+05-16 16:43:53.640  1132  1163 I libPowerHal: [setDvfsrcDevFreqOpp] opp:0, freq:4266000000
+05-16 16:43:53.640  1124  1170 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 9118601  [4254 / 16]    HINT : APP_START    list : 
+05-16 16:43:53.641  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:1000000 param:0
+05-16 16:43:53.642  2821  3027 I HoneySpace.TopTaskSource: onTaskMovedToFront : taskId = 5071, displayId = 0
+05-16 16:43:53.642  1159  2820 I VSyncReactor: Current= 60, Period= 60, hwcPeriod= 60
+05-16 16:43:53.642  2361  2430 D NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+05-16 16:43:53.643  2821  7831 I HoneySpace.RecentTasks: onRecentTasksChanged
+05-16 16:43:53.644  2821  3029 I HoneySpace.TopTaskUseCase: topTaskId 5071, DisplayId : 0
+05-16 16:43:53.644  2821 16359 I HoneySpace.RecentTasks: onRecentTasksChanged
+05-16 16:43:53.646  1759  3127 D InputTransport: Input channel constructed: '1f32382', fd=1318
+05-16 16:43:53.646  1759  3127 D InputTransport: Input channel constructed: '1f32382', fd=1327
+05-16 16:43:53.646  1759  3127 D InputTransport: Input channel constructed: '1f32382', fd=1329
+05-16 16:43:53.647  1759  3127 D WindowManager: prepareSync <SYNC_STATE_WAITING_FOR_DRAW>, mPrepareSyncSeqId=0, win=Window{1f32382 u0 Splash Screen org.libsdl.app}
+05-16 16:43:53.647  1159  2096 I BufferQueueDebug: [1f32382 Splash Screen org.libsdl.app#46906](this:0xb400006f845fdcb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:53.648  1159  2096 I SurfaceFlinger: id=46906 createSurf, flag=84004, 1f32382 Splash Screen org.libsdl.app#46906
+05-16 16:43:53.649  1759  3127 D RestrictionPolicy: isScreenCaptureEnabled : ret=true userId=0
+05-16 16:43:53.649  1759  3127 V WindowManager: addWindow: ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071} startingWindow=Window{1f32382 u0 Splash Screen org.libsdl.app}
+05-16 16:43:53.650  1759  3127 D InputTransport: Input channel destroyed: '1f32382', fd=1329
+05-16 16:43:53.651  2361  2407 D InputTransport: Input channel constructed: '1f32382', fd=720
+05-16 16:43:53.652  2361  2407 I InsetsController: onStateChanged: host=Splash Screen org.libsdl.app, from=android.view.ViewRootImpl.setView:1999, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 80 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(472, 0 - 608, 80), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 H -24.177777778 V 28.4444444444 H 24.177777778 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=113, center=Point(113, 113)}, RoundedCorner{position=TopRight, radius=113, center=Point(967, 113)}, RoundedCorner{position=BottomRight, radius=113, center=Point(967, 2227)}, RoundedCorner{position=BottomLeft, radius=113, center=Point(113, 2227)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(956, 0 - 1080, 80) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {f190000 mType=statusBars mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {f190005 mType=mandatorySystemGestures mFrame=[0,0][1080,114] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {f190006 mType=tappableElement mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {430f0001 mType=navigationBars mFrame=[0,2205][1080,2340] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {430f0004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {430f0005 mType=mandatorySystemGestures mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {430f0006 mType=tappableElement mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {430f0024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+05-16 16:43:53.652  2361  2407 I VRI[app]@93093e7: synced displayState. AttachInfo displayState=4
+05-16 16:43:53.652  2361  2407 I VRI[app]@93093e7: setView = android.widget.FrameLayout@273702e IsHRR=false TM=true
+05-16 16:43:53.653  2361  2430 D HWUI    : HWUI - treat SMPTE_170M as sRGB
+05-16 16:43:53.654  1159  1159 I BufferQueueProducer: [VDS-studio.screen.sharing:0 SINK](this:0xb400006f88776e18,id:-1,api:1,p:1159,c:1159) queueBuffer: fps=0.43 dur=2328.24 max=2328.24 min=2328.24
+05-16 16:43:53.654  1100  1100 D Zygote  : Forked child process 27458
+05-16 16:43:53.656  1759  1803 I ActivityManager: Start proc 27458:org.libsdl.app/u0a467 for top-activity {org.libsdl.app/org.libsdl.app.SDLActivity}
+05-16 16:43:53.661  1759  3127 V WindowManager: Relayout Window{1f32382 u0 Splash Screen org.libsdl.app}: viewVisibility=0 req=1080x2340 ty=3 d0
+05-16 16:43:53.662  1159  2096 I BufferQueueDebug: [Splash Screen org.libsdl.app$_2361#46907](this:0xb400006f84608cb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:53.662  1159  2096 I SurfaceFlinger: id=46907 createSurf, flag=44004, Splash Screen org.libsdl.app$_2361#46907
+05-16 16:43:53.663  1759  3127 D WindowManager: makeSurface duration=2 name=Splash Screen org.libsdl.app$_2361
+05-16 16:43:53.667  1759  3127 V WindowManager: SyncGroup 3713: Finished!
+05-16 16:43:53.667  1759  3127 D ChangeTransitionController: onTransactionReady: TransitionRecord{54aa92b id=3713 type=OPEN flags=0x0}
+05-16 16:43:53.668  1759  3127 V WindowManager: Start calculating TransitionInfo based on participants: {ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}, Task{c755721 #5071 type=standard A=10467:org.libsdl.app}}
+05-16 16:43:53.668  1759  3127 V WindowManager:   Final targets: []
+05-16 16:43:53.668  1759  3127 V WindowManager: Calling onTransitionReady: {id=3713 t=OPEN f=0x40 trk=0 r=[] c=[]}
+05-16 16:43:53.670  2361  2392 V WindowManagerShell: onTransitionReady(transaction=7554847671175)
+05-16 16:43:53.671  1759  1786 V WindowManager: Sent Transition (#3713) createdAt=05-16 16:43:53.618 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=5071 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=org.libsdl.app/.SDLActivity } baseActivity=ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity} topActivity=ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity} origActivity=null realActivity=ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity} numActivities=1 lastActiveTime=611389363 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 maxWidth=-1 maxHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{c79bac9 Task{c755721 #5071 type=standard A=10467:org.libsdl.app}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 80 - 0, 0) topActivityInfo=ActivityInfo{733f5ce org.libsdl.app.SDLActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=true topActivityInSizeCompat=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isTopActivityStyleFloating=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=2340 topActivityLetterboxAppWidth=1080 topActivityLetterboxAppHeight=2125 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive} topActivityBounds=null topActivityInDisplayCompat=false} originallySupportedMultiWindow=true hasWallpaper=false rootAffinity=10467:org.libsdl.app isTopTaskInStage=false topActivityUiMode=33 CoverLauncherWidgetTask=false isAllowedSeamlessRotation=false isTopTransparentActivity=false snappingGuideBounds=null isAliasManaged=false hasConfigChanged=false isAiKeyRemoveAppTask=false}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 3713 }
+05-16 16:43:53.671  1759  1786 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+05-16 16:43:53.671  1759  1786 V WindowManager:     info={id=3713 t=OPEN f=0x40 trk=0 r=[] c=[]}
+05-16 16:43:53.671  1759  3127 V WindowManager: Relayout hash=1f32382, pid=2361, syncId=-1: mAttrs={(0,0)(fillxfill) sim={adjust=pan} ty=APPLICATION_STARTING fmt=TRANSLUCENT wanim=0x1030001
+05-16 16:43:53.671  1759  3127 V WindowManager:   fl=81030118
+05-16 16:43:53.671  1759  3127 V WindowManager:   pfl=10000010
+05-16 16:43:53.671  1759  3127 V WindowManager:   bhv=1
+05-16 16:43:53.671  1759  3127 V WindowManager:   fitSides=0
+05-16 16:43:53.671  1759  3127 V WindowManager:   frameRateBoostOnTouch=true
+05-16 16:43:53.671  1759  3127 V WindowManager:   dvrrWindowFrameRateHint=true naviIconColor=0}
+05-16 16:43:53.673  1469 22699 D BufferPoolAccessor2.0: bufferpool2 0xb400007c7d78b028 : 1(100 size) total buffers - 1(100 size) used buffers - 3498/4588 (recycle/alloc) - 1190/4587 (fetch/transfer)
+05-16 16:43:53.673  2361  2399 V WindowManagerShell: onTransitionReady (#3713) android.os.BinderProxy@bf49b85: {id=3713 t=OPEN f=0x40 trk=0 r=[] c=[]}
+05-16 16:43:53.673  2361  2399 V WindowManagerShell: No transition roots in (#3713) android.os.BinderProxy@bf49b85@0 so abort
+05-16 16:43:53.674  2361  2399 I SurfaceControlRegistry: apply, t=StartTransaction_SyncId<3713>, caller=android.view.SurfaceControl$Transaction.apply:3135 android.view.SurfaceControl$Transaction.apply:3122 android.view.SurfaceControl$Transaction.apply:3078 com.android.wm.shell.transition.Transitions.processReadyQueue:240 com.android.wm.shell.transition.Transitions.onAbort:54 com.android.wm.shell.transition.Transitions.dispatchReady:225 
+05-16 16:43:53.674  2361  2407 D BufferQueueConsumer: [](id:93900000994,api:0,p:-1,c:2361) connect: controlledByApp=false
+05-16 16:43:53.674  2361  2399 V WindowManagerShell: Transition animation finished (aborted=true), notifying core (#3713) android.os.BinderProxy@bf49b85@0
+05-16 16:43:53.674  2361  2407 I BLASTBufferQueue: [VRI[app]@93093e7#2452](f:0,a:0,s:0) constructor()
+05-16 16:43:53.675  2361  2407 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= VRI[app]@93093e7 mNativeObject= 0xb4000070d00d3c00 sc.mNativeObject= 0xb4000070db708180 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 android.view.Choreographer.doCallbacks:1216 android.view.Choreographer.doFrame:1142 android.view.Choreographer$FrameDisplayEventReceiver.run:1707 
+05-16 16:43:53.675  2361  2399 I SurfaceControlRegistry: apply, t=FinishTransaction_SyncId<3713>, caller=android.view.SurfaceControl$Transaction.apply:3135 android.view.SurfaceControl$Transaction.apply:3122 android.view.SurfaceControl$Transaction.apply:3078 com.android.wm.shell.transition.Transitions.onFinish:308 com.android.wm.shell.transition.Transitions.processReadyQueue:246 com.android.wm.shell.transition.Transitions.onAbort:54 
+05-16 16:43:53.675  2361  2407 I BLASTBufferQueue_Java: update, w= 1080 h= 2340 mName = VRI[app]@93093e7 mNativeObject= 0xb4000070d00d3c00 sc.mNativeObject= 0xb4000070db708180 format= -3 caller= android.graphics.BLASTBufferQueue.<init>:88 android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 
+05-16 16:43:53.675  2361  2407 I BLASTBufferQueue: [VRI[app]@93093e7#2452](f:0,a:0,s:0) update width=1080 height=2340 format=-3 mTransformHint=0
+05-16 16:43:53.676  2361  2407 I VRI[app]@93093e7: Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)0 dur=15 res=0x3 s={true 0xb400006f8edc3800} ch=true seqId=0
+05-16 16:43:53.676  1382  4158 I CameraService: onUidStateChanged: uid=10065, procState is changed. (0 -> 1)
+05-16 16:43:53.677  2361  2407 D VRI[app]@93093e7: mThreadedRenderer.initialize() mSurface={isValid=true 0xb400006f8edc3800} hwInitialized=true
+05-16 16:43:53.677 27458 27458 I org.libsdl.app: Late-enabling -Xcheck:jni
+05-16 16:43:53.677  2361  2407 D VRI[app]@93093e7: reportNextDraw android.view.ViewRootImpl.performTraversals:5193 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 
+05-16 16:43:53.678  2361  2407 D VRI[app]@93093e7: Setup new sync=wmsSync-VRI[app]@93093e7#74
+05-16 16:43:53.678  2361  2407 I VRI[app]@93093e7: Creating new active sync group VRI[app]@93093e7#75
+05-16 16:43:53.678  2361  2407 D VRI[app]@93093e7: registerCallbacksForSync syncBuffer=false
+05-16 16:43:53.680  1132  1139 I mtkpower@impl: [setMode] type:5, enabled:0
+05-16 16:43:53.680  1759  3127 V WindowManager: Finish Transition: TransitionRecord{54aa92b id=3713 type=OPEN flags=0x40}, caller=com.android.server.wm.WindowOrganizerController.finishTransitionInner:26 com.android.server.wm.WindowOrganizerController.finishAllTransitions:59 android.window.IWindowOrganizerController$Stub.onTransact:311 
+05-16 16:43:53.682  1759  1786 V WindowManager: Finish Transition (#3713): created at 05-16 16:43:53.618 collect-started=1.119ms request-sent=13.886ms started=18.029ms ready=47.96ms sent=50.744ms finished=63.695ms
+05-16 16:43:53.682  1759  3127 D ChangeTransitionController: onTransitionFinished: TransitionRecord{54aa92b id=3713 type=OPEN flags=0x40}
+05-16 16:43:53.683  2361  2399 V WindowManagerShell: Track 0 became idle
+05-16 16:43:53.684  2361  2399 V WindowManagerShell: All active transition animations finished
+05-16 16:43:53.687  1382  4158 I CameraService: onUidStateChanged: uid=10065, procState is changed. (1 -> 0)
+05-16 16:43:53.687  2361  2989 D VRI[app]@93093e7: Received frameDrawingCallback syncResult=0 frameNum=1.
+05-16 16:43:53.687  2361  2989 I VRI[app]@93093e7: mWNT: t=0xb400006f46f40380 mBlastBufferQueue=0xb4000070d00d3c00 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$11.onFrameDraw:15016 android.view.ThreadedRenderer$1.onFrameDraw:761 <bottom of call stack> 
+05-16 16:43:53.687  2361  2989 I VRI[app]@93093e7: Setting up sync and frameCommitCallback
+05-16 16:43:53.692  2361  2430 I BLASTBufferQueue: [VRI[app]@93093e7#2452](f:0,a:0,s:0) onFrameAvailable the first frame is available
+05-16 16:43:53.693  2361  2430 I BLASTBufferQueue: [VRI[app]@93093e7#2452](f:0,a:1,s:0) acquireNextBufferLocked size=1080x2340 mFrameNumber=1 applyTransaction=true mTimestamp=252194793061646(auto) mPendingTransactions.size=0 graphicBufferId=10140417862117 transform=0
+05-16 16:43:53.697  2361  2430 I VRI[app]@93093e7: Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+05-16 16:43:53.698  2361  2430 D HWUI    : CFMS:: SetUp Pid : 2361    Tid : 2430
+05-16 16:43:53.699  2361  2407 D VRI[app]@93093e7: reportDrawFinished seqId=0
+05-16 16:43:53.699  1759  6224 D CoreBackPreview: Window{1f32382 u0 Splash Screen org.libsdl.app}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@1589cef, mPriority=0, mIsAnimationCallback=false}
+05-16 16:43:53.700  1759  6224 D WindowManager: finishDrawingWindow: Window{1f32382 u0 Splash Screen org.libsdl.app} mDrawState=DRAW_PENDING seqId=0
+05-16 16:43:53.700  1759  6224 V WindowManager: Finishing drawing window Window{1f32382 u0 Splash Screen org.libsdl.app}: mDrawState=DRAW_PENDING
+05-16 16:43:53.700  1759  6224 V WindowManager: Draw state now committed in Window{1f32382 u0 Splash Screen org.libsdl.app}
+05-16 16:43:53.721 27458 27458 I org.libsdl.app: Using CollectorTypeCMC GC.
+05-16 16:43:53.726  5258  5264 I adbd    : jdwp connection from 27458
+05-16 16:43:53.731 27458 27458 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+05-16 16:43:53.736 27458 27458 D ActivityThread: setConscryptValidator
+05-16 16:43:53.736 27458 27458 D ActivityThread: setConscryptValidator - put
+05-16 16:43:53.743  1759  6224 I ActivityManager: Changes in 10467 20 to 19, 0 to 127
+05-16 16:43:53.744  1759  1787 D FingerprintProvider/default: onForegroundActivitiesChanged: pid = 27458, uid = 10467, foregroundActivities = true
+05-16 16:43:53.746  1759  1787 D FingerprintProvider/default: onForegroundActivitiesChanged: pid = 27458, uid = 10467, foregroundActivities = true
+05-16 16:43:53.747  1759  1787 D PkgPredictorService-SecIpmManagerServiceImpl: onForegroundActivitiesChanged pid:27458 uid:10467
+05-16 16:43:53.747  1759  2924 V PkgPredictorService-SecIpmManagerServiceImpl: discard foreground app:org.libsdl.app 0|false
+05-16 16:43:53.752  1759  6224 W UserManagerService: Requested status bar icon for non-badged user 0
+05-16 16:43:53.755 27458 27458 D CompatChangeReporter: Compat change id reported: 242716250; UID 10467; state: ENABLED
+05-16 16:43:53.757  1116 28361 D C2MtkBufferManager: over 5000ms not request from VCodec but callback hooked, slow BM fetch thread. Last get time was 10721096ms ago, block status(0, 6, 15).
+05-16 16:43:53.770 27458 27458 D nativeloader: Configuring clns-7 for other apk /data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/lib/arm64:/data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/org.libsdl.app
+05-16 16:43:53.785 27458 27458 V GraphicsEnvironment: Currently set values for:
+05-16 16:43:53.785 27458 27458 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+05-16 16:43:53.785 27458 27458 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+05-16 16:43:53.785 27458 27458 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+05-16 16:43:53.786 27458 27458 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+05-16 16:43:53.840  1759  6224 D WindowManager: App launched activity=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}, state=1
+05-16 16:43:53.841  1759  6224 V WindowManager: Computed rotation=ROTATION_0 (0) for display id=0 based on lastOrientation=SCREEN_ORIENTATION_NOSENSOR (5) and oldRotation=ROTATION_0 (0), caller=com.android.server.wm.DisplayRotation.updateOrientation:25 com.android.server.wm.DisplayContent.updateOrientation:65 com.android.server.wm.DisplayContent.updateOrientation:11 com.android.server.wm.RootWindowContainer.ensureVisibilityAndConfig:7 com.android.server.wm.ActivityTaskSupervisor.realStartActivityLocked:209 com.android.server.wm.RootWindowContainer.attachApplication:90 
+05-16 16:43:53.845  1759  6224 D SGM:FgCheckThread: notifyAppCreated(), packageName: org.libsdl.app, userId: 0, sendRet: true
+05-16 16:43:53.845  1759  1986 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_APP_CREATE, pkgName: org.libsdl.app, userId: 0
+05-16 16:43:53.847  1759  6224 D SGM:FgCheckThread: TaskStackListener.onTaskFocusChanged(), taskId=5071, focused=true
+05-16 16:43:53.850  1759  6224 D SGM:FgCheckThread:   sendRunningComponentFocus(), pkgName: org.libsdl.app, userId: 0
+05-16 16:43:53.850  1759  1986 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_TASK_FOCUSED, pkgName: org.libsdl.app, userId: 0
+05-16 16:43:53.850  1759  1986 D SGM:FgCheckThread: handleTaskFocused().
+05-16 16:43:53.850  1759  1986 D SGM:FgCheckThread:   handleTaskFocused(), pkgName: org.libsdl.app, userID:0
+05-16 16:43:53.850  1759  1986 D SGM:FgCheckThread: handleResume().
+05-16 16:43:53.850  1759  6224 D InputDispatcher: Focused application(0): ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}
+05-16 16:43:53.850  1759  1986 D SGM:SystemHelper: callReleaseBlock needReleaseBlock:false
+05-16 16:43:53.850  1759  1986 D SGM:FgCheckThread:   handleResume(). device is locked yet. ignore
+05-16 16:43:53.851  1759  6224 D ActivityTaskManager: scheduleTopResumedActivityChanged, onTop=true, r=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}, caller=com.android.server.wm.ActivityTaskSupervisor.updateTopResumedActivityIfNeeded:62 com.android.server.wm.TaskFragment.setResumedActivity:29 com.android.server.wm.ActivityRecord.setState:104 com.android.server.wm.ActivityTaskSupervisor.realStartActivityLocked:945 com.android.server.wm.RootWindowContainer.attachApplication:90 com.android.server.wm.ActivityTaskManagerService$LocalService.attachApplication:40 
+05-16 16:43:53.851  2821  3027 I HoneySpace.TopTaskSource: onTaskFocusChanged(): taskId = 5071
+05-16 16:43:53.852  2821  3027 I HoneySpace.TopTaskSource: onTaskMovedToFront : taskId = 5071, displayId = 0
+05-16 16:43:53.852  1759  6224 D ActivityTaskManager: scheduleTopResumedActivityChanged, onTop=false, r=ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}, caller=com.android.server.wm.ActivityTaskSupervisor.scheduleTopResumedActivityStateLossIfNeeded:11 com.android.server.wm.ActivityTaskSupervisor.updateTopResumedActivityIfNeeded:19 com.android.server.wm.TaskFragment.setResumedActivity:29 com.android.server.wm.ActivityRecord.setState:95 com.android.server.wm.TaskFragment.startPausing$1:210 com.android.server.wm.Task$$ExternalSyntheticLambda3.accept:271 
+05-16 16:43:53.854  1759  1789 D SGM:FgCheckThread: noteResumeComponent(), received pkgName: org.libsdl.app, userId: 0
+05-16 16:43:53.855  1759  2276 D SemWifiTransportLayerMonitor.TcpMonitorHandler: MSG_SAVE_PACKAGE_INFO
+05-16 16:43:53.855  1759  2276 D SemWifiTransportLayerFileManager: saveWifiPackageInfoToFile
+05-16 16:43:53.855  1759  2276 D SemWifiTransportLayerFileManager: writeWifiPackageInfoList
+05-16 16:43:53.855  1759  2225 I CocktailBarManagerServiceContainer: handleMessage: entry what = 5
+05-16 16:43:53.855  1759  2225 I CocktailBarManagerServiceImpl: noteResumeComponent : no active host
+05-16 16:43:53.855  4254 21000 I SDHMS:l : handleResumeComponent : put = org.libsdl.app, userid = 0 instanceid =50878278
+05-16 16:43:53.856  2361  2361 I {OngoingActivityController}: onTaskFocusChanged focused:true, baseActivity:ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity}
+05-16 16:43:53.857  1759  8444 D GraphicsStatsService: requestRenderEngineFor(org.libsdl.app)
+05-16 16:43:53.857 27458 27458 D ActivityThread: org.libsdl.app will use render engine as VK
+05-16 16:43:53.858  1759  1986 D SGM:FgCheckThread: onLooperPrepared(), msg: MSG_APP_RESUME, pkgName: org.libsdl.app, userid: 0
+05-16 16:43:53.858  1759  1986 D SGM:FgCheckThread: handleResume().
+05-16 16:43:53.858  1759  1986 D SGM:SystemHelper: callReleaseBlock needReleaseBlock:false
+05-16 16:43:53.858  1759  1986 D SGM:FgCheckThread:   handleResume(). device is locked yet. ignore
+05-16 16:43:53.859 27458 27458 D HWUI    : HWUI - treat SMPTE_170M as sRGB
+05-16 16:43:53.859  1759  2203 D AS.MultiSoundManager: mForegroundUid = 10467
+05-16 16:43:53.861  1759  1789 I ActivityManager: Changes in 10467 19 to 12, 127 to 0
+05-16 16:43:53.861  2361  2361 I {OngoingActivityDataHelper}: setBaseActivityComponentName:ComponentInfo{org.libsdl.app/org.libsdl.app.SDLActivity}
+05-16 16:43:53.864 27458 27475 D HWUI    : CacheManager constructor. deviceInfo=(1080, 1920)
+05-16 16:43:53.864 27458 27475 D libMEOW : meow new tls: 0xb4000070b209f680
+05-16 16:43:53.865 27458 27475 D libMEOW : meow reload base cfg path: na
+05-16 16:43:53.865 27458 27475 D libMEOW : meow reload overlay cfg path: na
+05-16 16:43:53.865 27458 27475 W QT      : qt_process_init() called
+05-16 16:43:53.865 27458 27475 E QT      : [QT]file does not exist
+05-16 16:43:53.865 27458 27475 W QT      : Support!!
+05-16 16:43:53.865 27458 27475 D libMEOW : applied 0 plugin for [org.libsdl.app].
+05-16 16:43:53.879  1759  2191 D MdnieScenarioControlService:  packageName : org.libsdl.app    className : org.libsdl.app.SDLActivity
+05-16 16:43:53.880  1759  2191 V MdnieScenarioControlService: setUIMode from UI function(3)
+05-16 16:43:53.881   489   489 I hwservicemanager: getTransport: Cannot find entry android.hardware.configstore@1.0::ISurfaceFlingerConfigs/default in either framework or device VINTF manifest.
+05-16 16:43:53.898 27458 27458 V SDL     : Device: a15x
+05-16 16:43:53.898 27458 27458 V SDL     : Model: SM-A156E
+05-16 16:43:53.898 27458 27458 V SDL     : onCreate()
+05-16 16:43:53.903 27458 27458 D nativeloader: Load /data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/lib/arm64/libSDL2.so using class loader ns clns-7 (caller=/data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/base.apk): ok
+05-16 16:43:53.912 27458 27458 D nativeloader: Load /data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/lib/arm64/libmain.so using class loader ns clns-7 (caller=/data/app/~~JxNiHusp3JS95uKEzBd8nw==/org.libsdl.app-Ttz6me1xryLg_SWvXqfLUA==/base.apk): ok
+05-16 16:43:53.913 27458 27458 V SDL     : nativeSetupJNI()
+05-16 16:43:53.915 27458 27458 V SDL     : AUDIO nativeSetupJNI()
+05-16 16:43:53.915 27458 27458 V SDL     : CONTROLLER nativeSetupJNI()
+05-16 16:43:53.953  1159  2096 D SurfaceFlinger: [SF client] NEW(0xb400006fb9c81d80) for (27458:org.libsdl.app)
+05-16 16:43:53.982  1759  2191 V MdnieScenarioControlService: mAclOffEnabled : false
+05-16 16:43:53.985 27458 27458 I DecorView: setWindowBackground: isPopOver=false color=ff010102 d=android.graphics.drawable.StateListDrawable@35a0263
+05-16 16:43:53.989 27458 27458 V SDL     : onStart()
+05-16 16:43:53.994 27458 27458 V SDL     : onResume()
+05-16 16:43:54.000  1159  2096 D SurfaceFlinger: [SF client] NEW(0xb400006fb9d85300) for (27458:org.libsdl.app)
+05-16 16:43:54.007 27458 27458 I ViewRootImpl: dVRR is disabled
+05-16 16:43:54.009 27458 27458 D HardwareRenderer: onDisplayChanged. displayId=0 current wxh=1080x2340 mLargest wxh=0x0
+05-16 16:43:54.009 27458 27458 W HWUI    : Unknown dataspace 0
+05-16 16:43:54.009 27458 27475 D HWUI    : setMaxSurfaceArea requested wxh=(1080,2340) requestedSurfaceArea(2527200) mMaxSurfaceArea(2073600)
+05-16 16:43:54.009 27458 27458 D HardwareRenderer: Set largestWidth and largestHeight as logical resolution. (1080x2340)
+05-16 16:43:54.010 27458 27475 D NativeCustomFrequencyManager: [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+05-16 16:43:54.018 27458 27458 I InsetsController: setRequestedVisibleTypes: visible=false, mask=statusBars captionBar, host=org.libsdl.app/org.libsdl.app.SDLActivity, from=android.view.InsetsController.controlAnimationUnchecked:1498 android.view.InsetsController.applyAnimation:2228 android.view.InsetsController.applyAnimation:2159 android.view.InsetsController.hide:1452 android.view.InsetsController.hide:1368 android.view.ViewRootImpl.controlInsetsForCompatibility:3953 android.view.ViewRootImpl.setView:1955 android.view.WindowManagerGlobal.addView:578 android.view.WindowManagerImpl.addView:158 android.app.ActivityThread.handleResumeActivity:6064 
+05-16 16:43:54.019  1759  6224 W WindowManager: Failed looking up window session=Session{f97f2db 27458:u0a10467} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:1 com.android.server.wm.Session.updateRequestedVisibleTypes:12 android.view.IWindowSession$Stub.onTransact:1244 
+05-16 16:43:54.020  1759  7544 D InputTransport: Input channel constructed: '8bab0b6', fd=1331
+05-16 16:43:54.020  1759  7544 D InputTransport: Input channel constructed: '8bab0b6', fd=1350
+05-16 16:43:54.020  1759  7544 D InputTransport: Input channel constructed: '8bab0b6', fd=1362
+05-16 16:43:54.021  1159  2096 D SurfaceFlinger: [SF client] NEW(0xb400006f9bab9280) for (1759:system_server)
+05-16 16:43:54.023  1379  1841 E thermal_core: Failed to read /sys/class/thermal/thermal_zone24/temp: Invalid argument
+05-16 16:43:54.023  1159  1255 I BufferQueueDebug: [8bab0b6 org.libsdl.app/org.libsdl.app.SDLActivity#46908](this:0xb400006f8270dcb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:54.024  1159  1255 I SurfaceFlinger: id=46908 createSurf, flag=84004, 8bab0b6 org.libsdl.app/org.libsdl.app.SDLActivity#46908
+05-16 16:43:54.025  1759  7544 D RestrictionPolicy: isScreenCaptureEnabled : ret=true userId=0
+05-16 16:43:54.025  1759  7544 D RestrictionPolicy: isScreenCaptureEnabled : ret=true userId=0
+05-16 16:43:54.026  1759  7544 D InputTransport: Input channel destroyed: '8bab0b6', fd=1362
+05-16 16:43:54.027 27458 27458 D InputTransport: Input channel constructed: '8bab0b6', fd=129
+05-16 16:43:54.031 27458 27458 I InsetsController: onStateChanged: host=org.libsdl.app/org.libsdl.app.SDLActivity, from=android.view.ViewRootImpl.setView:1999, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1080, 2340), mDisplayCutout=DisplayCutout{insets=Rect(0, 80 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(472, 0 - 608, 80), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1080 displayHeight=2340 physicalDisplayWidth=1080 physicalDisplayHeight=2340 density={2.8125} cutoutSpec={M 0,0 H -24.177777778 V 28.4444444444 H 24.177777778 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=113, center=Point(113, 113)}, RoundedCorner{position=TopRight, radius=113, center=Point(967, 113)}, RoundedCorner{position=BottomRight, radius=113, center=Point(967, 2227)}, RoundedCorner{position=BottomLeft, radius=113, center=Point(113, 2227)}]}  mRoundedCornerFrame=Rect(0, 0 - 1080, 2340), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(956, 0 - 1080, 80) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1080 displayHeight=2340 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {f190000 mType=statusBars mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {f190005 mType=mandatorySystemGestures mFrame=[0,0][1080,114] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {f190006 mType=tappableElement mFrame=[0,0][1080,80] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {430f0001 mType=navigationBars mFrame=[0,2205][1080,2340] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {430f0004 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {430f0005 mType=mandatorySystemGestures mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {430f0006 mType=tappableElement mFrame=[0,2205][1080,2340] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {430f0024 mType=systemGestures mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null} }
+05-16 16:43:54.034 27458 27458 I VRI[SDLActivity]@1dc9f19: synced displayState. AttachInfo displayState=4
+05-16 16:43:54.035 27458 27458 I VRI[SDLActivity]@1dc9f19: setView = com.android.internal.policy.DecorView@18f13d5 IsHRR=false TM=true
+05-16 16:43:54.036 27458 27458 I IDS_TAG : Clearing training data of android.app.Application@3ad0d71
+05-16 16:43:54.040 27458 27458 I IDS_TAG : Starting IDS observe window
+05-16 16:43:54.040 27458 27458 I IDS_TAG : Getting Shared Preference for android.app.Application@3ad0d71 uid = 10467
+05-16 16:43:54.042 27458 27458 I IDS_TAG : App android.app.Application@3ad0d71 has not finished training
+05-16 16:43:54.044 27458 27458 V SDL     : onPause()
+05-16 16:43:54.046  1759  1789 D SGM:FgCheckThread: notePauseComponent(), received pkgName: org.libsdl.app, userId: 0
+05-16 16:43:54.046  1759  1789 D SGM:FgCheckThread: notePauseComponent(), received pkgName: org.libsdl.app, userId: 0
+05-16 16:43:54.046  1759  1789 D SGM:FgCheckThread: notifyFocusInOut(). of pkg: org.libsdl.app, type: 20, isSecGameFamily: false, userId: 0
+05-16 16:43:54.047  1759  1789 D SGM:GameManager: identifyGamePackage. org.libsdl.app, mCurrentUserId: 0, callerUserId: 0, callingMethodInfo: com.samsung.android.game.SemGameManager.isGamePackage(SemGameManager.java:105)
+05-16 16:43:54.047  1759  1789 D SGM:SemGameManager: isGamePackage(), pkgName=org.libsdl.app, ret=false
+05-16 16:43:54.047  1759  1789 D SGM:FgCheckThread:   notifyFocusInOut(). unexpected type. 20
+05-16 16:43:54.047 27458 27475 D HWUI    : CacheManager::trimMemory(20)
+05-16 16:43:54.047  1759  2225 I CocktailBarManagerServiceContainer: handleMessage: entry what = 6
+05-16 16:43:54.047  1759  2225 I CocktailBarManagerServiceImpl: notePauseComponent : no active host
+05-16 16:43:54.049 27458 27475 D HWUI    : HWUI - treat SMPTE_170M as sRGB
+05-16 16:43:54.050 27458 27458 I IDS_TAG : Closing IDS observe window
+05-16 16:43:54.050 27458 27458 I IDS_TAG : Getting Shared Preference for android.app.Application@3ad0d71 uid = 10467
+05-16 16:43:54.051 27458 27458 I IDS_TAG : IDS count updated to 1 for android.app.Application@3ad0d71
+05-16 16:43:54.058 27458 27458 I SurfaceView@6070e48: onWindowVisibilityChanged(0) true org.libsdl.app.SDLSurface{6070e48 VFE...... .F....I. 0,0-0,0} of VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.058 27458 27458 D SurfaceView: 101125704 updateSurface: has no frame
+05-16 16:43:54.062  1759  7544 D CoreBackPreview: Window{8bab0b6 u0 org.libsdl.app/org.libsdl.app.SDLActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@5e80d24, mPriority=0, mIsAnimationCallback=false}
+05-16 16:43:54.065 27458 27458 I InsetsController: setRequestedVisibleTypes: visible=true, mask=statusBars captionBar, host=org.libsdl.app/org.libsdl.app.SDLActivity, from=android.view.InsetsController.controlAnimationUnchecked:1498 android.view.InsetsController.applyAnimation:2228 android.view.InsetsController.applyAnimation:2159 android.view.InsetsController.show:1340 android.view.InsetsController.show:1255 android.view.ViewRootImpl.controlInsetsForCompatibility:3956 android.view.ViewRootImpl.performTraversals:4497 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 
+05-16 16:43:54.067  1759  7544 V WindowManager: Relayout Window{8bab0b6 u0 org.libsdl.app/org.libsdl.app.SDLActivity}: viewVisibility=0 req=1080x2260 ty=1 d0
+05-16 16:43:54.067  1159  1255 I BufferQueueDebug: [org.libsdl.app/org.libsdl.app.SDLActivity$_27458#46909](this:0xb400006f82964cb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:54.068  1159  1255 I SurfaceFlinger: id=46909 createSurf, flag=44004, org.libsdl.app/org.libsdl.app.SDLActivity$_27458#46909
+05-16 16:43:54.069  1759  7544 D WindowManager: makeSurface duration=2 name=org.libsdl.app/org.libsdl.app.SDLActivity$_27458
+05-16 16:43:54.071  1759  7544 V WindowManager: Relayout hash=8bab0b6, pid=27458, syncId=-1: mAttrs={(0,0)(fillxfill) sim={adjust=pan} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x1030001 sysuil=true preferMinimalPostProcessing=true
+05-16 16:43:54.071  1759  7544 V WindowManager:   fl=1810900
+05-16 16:43:54.071  1759  7544 V WindowManager:   pfl=10008040
+05-16 16:43:54.071  1759  7544 V WindowManager:   vsysui=100
+05-16 16:43:54.071  1759  7544 V WindowManager:   bhv=1
+05-16 16:43:54.071  1759  7544 V WindowManager:   fitSides=0
+05-16 16:43:54.071  1759  7544 V WindowManager:   frameRateBoostOnTouch=true
+05-16 16:43:54.071  1759  7544 V WindowManager:   dvrrWindowFrameRateHint=true naviIconColor=0}
+05-16 16:43:54.074 27458 27458 D BufferQueueConsumer: [](id:6b4200000000,api:0,p:-1,c:27458) connect: controlledByApp=false
+05-16 16:43:54.076 27458 27458 I BLASTBufferQueue: [VRI[SDLActivity]@1dc9f19#0](f:0,a:0,s:0) constructor()
+05-16 16:43:54.076 27458 27458 I BLASTBufferQueue_Java: new BLASTBufferQueue, mName= VRI[SDLActivity]@1dc9f19 mNativeObject= 0xb4000070a6d31800 sc.mNativeObject= 0xb4000070a6dab480 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 android.view.Choreographer.doCallbacks:1216 android.view.Choreographer.doFrame:1142 android.view.Choreographer$FrameDisplayEventReceiver.run:1707 
+05-16 16:43:54.077 27458 27458 I BLASTBufferQueue_Java: update, w= 1080 h= 2340 mName = VRI[SDLActivity]@1dc9f19 mNativeObject= 0xb4000070a6d31800 sc.mNativeObject= 0xb4000070a6dab480 format= -3 caller= android.graphics.BLASTBufferQueue.<init>:88 android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3397 android.view.ViewRootImpl.relayoutWindow:11361 android.view.ViewRootImpl.performTraversals:4544 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 
+05-16 16:43:54.077 27458 27458 I BLASTBufferQueue: [VRI[SDLActivity]@1dc9f19#0](f:0,a:0,s:0) update width=1080 height=2340 format=-3 mTransformHint=0
+05-16 16:43:54.082 27458 27458 I VRI[SDLActivity]@1dc9f19: Relayout returned: old=(0,80,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2260)0 dur=7 res=0x3 s={true 0xb4000070a6d3c000} ch=true seqId=0
+05-16 16:43:54.087 27458 27458 D VRI[SDLActivity]@1dc9f19: mThreadedRenderer.initialize() mSurface={isValid=true 0xb4000070a6d3c000} hwInitialized=true
+05-16 16:43:54.089 27458 27458 D SurfaceView: 101125704 updateSurface: has no frame
+05-16 16:43:54.090 27458 27458 I SurfaceView@6070e48: windowStopped(false) true org.libsdl.app.SDLSurface{6070e48 VFE...... .F....ID 0,0-1080,2125} of VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.090 27458 27458 D SurfaceView: 101125704 updateSurface: has no frame
+05-16 16:43:54.091 27458 27458 D VRI[SDLActivity]@1dc9f19: reportNextDraw android.view.ViewRootImpl.performTraversals:5193 android.view.ViewRootImpl.doTraversal:3708 android.view.ViewRootImpl$TraversalRunnable.run:12542 android.view.Choreographer$CallbackRecord.run:1751 android.view.Choreographer$CallbackRecord.run:1760 
+05-16 16:43:54.091 27458 27458 I SurfaceView: 101125704 Changes: creating=true format=true size=true visible=true alpha=false hint=false visible=true left=true top=true z=false attached=true lifecycleStrategy=false
+05-16 16:43:54.092  1159  1255 I BufferQueueDebug: [Bounds for - org.libsdl.app/org.libsdl.app.SDLActivity@0#46910](this:0xb400006f82a64cb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:54.092  1159  1255 I SurfaceFlinger: id=46910 createSurf, flag=20004, Bounds for - org.libsdl.app/org.libsdl.app.SDLActivity@0#46910
+05-16 16:43:54.093  1159  1255 I BufferQueueDebug: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46911](this:0xb400006f82a6ccb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:54.093  1159  1255 I SurfaceFlinger: id=46911 createSurf, flag=84004, SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46911
+05-16 16:43:54.094  1159  1255 I BufferQueueDebug: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0(BLAST)#46912](this:0xb400006f82a7dcb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:54.094  1159  1255 I SurfaceFlinger: id=46912 createSurf, flag=44400, SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0(BLAST)#46912
+05-16 16:43:54.095  1159  1255 I BufferQueueDebug: [Background for SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46913](this:0xb400006f82ab2cb8,id:-1,api:0,p:-1,c:-1) BufferQueue core=(1159:/system/bin/surfaceflinger)
+05-16 16:43:54.095  1159  1255 I SurfaceFlinger: id=46913 createSurf, flag=20404, Background for SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46913
+05-16 16:43:54.095 27458 27458 D BufferQueueConsumer: [](id:6b4200000001,api:0,p:-1,c:27458) connect: controlledByApp=false
+05-16 16:43:54.096 27458 27458 I BLASTBufferQueue: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#1](f:0,a:0,s:0) constructor()
+05-16 16:43:54.096 27458 27458 I BLASTBufferQueue_Java: update, w= 1080 h= 2125 mName = null mNativeObject= 0xb4000070e4dd6c00 sc.mNativeObject= 0xb4000070a6dabf00 format= 4 caller= android.view.SurfaceView.createBlastSurfaceControls:1642 android.view.SurfaceView.updateSurface:1318 android.view.SurfaceView.lambda$new$0:268 android.view.SurfaceView.$r8$lambda$NfZyM_TG8F8lqzaOVZ7noREFjzU:0 android.view.SurfaceView$$ExternalSyntheticLambda1.onPreDraw:0 android.view.ViewTreeObserver.dispatchOnPreDraw:1226 
+05-16 16:43:54.097 27458 27458 I BLASTBufferQueue: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#1](f:0,a:0,s:0) update width=1080 height=2125 format=4 mTransformHint=0
+05-16 16:43:54.097 27458 27458 I SurfaceView: 101125704 Cur surface: Surface(name=null mNativeObject=0)/@0xbffd524
+05-16 16:43:54.097 27458 27458 I SurfaceView@6070e48: pST: sr = Rect(0, 80 - 1080, 2205) sw = 1080 sh = 2125
+05-16 16:43:54.098 27458 27458 D SurfaceView: 101125704 performSurfaceTransaction RenderWorker position = [0, 80, 1080, 2205] surfaceSize = 1080x2125
+05-16 16:43:54.098 27458 27458 I SurfaceView@6070e48: updateSurface: mVisible = true mSurface.isValid() = true
+05-16 16:43:54.098 27458 27458 I SurfaceView@6070e48: updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+05-16 16:43:54.099 27458 27458 I SurfaceView: 101125704 visibleChanged -- surfaceCreated
+05-16 16:43:54.099 27458 27458 I SurfaceView@6070e48: surfaceCreated 1 #8 org.libsdl.app.SDLSurface{6070e48 VFE...... .F....ID 0,0-1080,2125}
+05-16 16:43:54.099 27458 27458 V SDL     : surfaceCreated()
+05-16 16:43:54.099 27458 27458 I SurfaceView: 101125704 surfaceChanged -- format=4 w=1080 h=2125
+05-16 16:43:54.099 27458 27458 I SurfaceView@6070e48: surfaceChanged (1080,2125) 1 #8 org.libsdl.app.SDLSurface{6070e48 VFE...... .F....ID 0,0-1080,2125}
+05-16 16:43:54.099 27458 27458 V SDL     : surfaceChanged()
+05-16 16:43:54.099 27458 27458 V SDL     : Window size: 1080x2125
+05-16 16:43:54.099 27458 27458 V SDL     : Device size: 1080x2340
+05-16 16:43:54.100 27458 27458 V SDL     : Skip .. Surface is not ready.
+05-16 16:43:54.100 27458 27458 I SurfaceView: 101125704 surfaceRedrawNeeded
+05-16 16:43:54.101 27458 27458 I SurfaceView: 101125704 finishedDrawing
+05-16 16:43:54.101 27458 27458 V SurfaceView: Layout: x=0 y=80 w=1080 h=2125, frame=Rect(0, 0 - 1080, 2125)
+05-16 16:43:54.102 27458 27458 D VRI[SDLActivity]@1dc9f19: Setup new sync=wmsSync-VRI[SDLActivity]@1dc9f19#1
+05-16 16:43:54.103 27458 27458 I VRI[SDLActivity]@1dc9f19: Creating new active sync group VRI[SDLActivity]@1dc9f19#2
+05-16 16:43:54.105 27458 27458 D VRI[SDLActivity]@1dc9f19: registerCallbacksForSync syncBuffer=false
+05-16 16:43:54.111 27458 27475 D SurfaceView: 101125704 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 80, 1080, 2205] surfaceSize = 1080x2125
+05-16 16:43:54.111 27458 27475 I SurfaceView@6070e48: uSP: rtp = Rect(0, 80 - 1080, 2205) rtsw = 1080 rtsh = 2125
+05-16 16:43:54.111 27458 27475 I SurfaceView@6070e48: onSSPAndSRT: pl = 0 pt = 80 sx = 1.0 sy = 1.0
+05-16 16:43:54.112 27458 27475 I SurfaceView@6070e48: aOrMT: VRI[SDLActivity]@1dc9f19 t = android.view.SurfaceControl$Transaction@6004a53 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1792 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:398 
+05-16 16:43:54.112 27458 27475 I VRI[SDLActivity]@1dc9f19: mWNT: t=0xb4000070a6b91280 mBlastBufferQueue=0xb4000070a6d31800 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1723 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1792 
+05-16 16:43:54.116 27458 27475 D MAGT_SYNC_FRAME: MAGT Sync: MAGT is not supported. Disabling Sync.
+05-16 16:43:54.116 27458 27495 D VRI[SDLActivity]@1dc9f19: Received frameDrawingCallback syncResult=0 frameNum=1.
+05-16 16:43:54.118 27458 27495 I VRI[SDLActivity]@1dc9f19: mWNT: t=0xb4000070a6b91a00 mBlastBufferQueue=0xb4000070a6d31800 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$11.onFrameDraw:15016 android.view.ThreadedRenderer$1.onFrameDraw:761 <bottom of call stack> 
+05-16 16:43:54.119 27458 27495 I VRI[SDLActivity]@1dc9f19: Setting up sync and frameCommitCallback
+05-16 16:43:54.128 27458 27475 D org.libsdl.app: Can't load libmbrainSDK
+05-16 16:43:54.148 27458 27475 I BLASTBufferQueue: [VRI[SDLActivity]@1dc9f19#0](f:0,a:0,s:0) onFrameAvailable the first frame is available
+05-16 16:43:54.148 27458 27475 I GrallocExtra: gralloc_extra_query:is_SW3D 0
+05-16 16:43:54.149 27458 27475 I BLASTBufferQueue: [VRI[SDLActivity]@1dc9f19#0](f:0,a:1,s:0) acquireNextBufferLocked size=1080x2340 mFrameNumber=1 applyTransaction=true mTimestamp=252195249605338(auto) mPendingTransactions.size=0 graphicBufferId=117931212013568 transform=0
+05-16 16:43:54.150 27458 27475 D org.libsdl.app: Can't load libmbrainSDK
+05-16 16:43:54.151 27458 27475 I VRI[SDLActivity]@1dc9f19: Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+05-16 16:43:54.152 27458 27475 D HWUI    : CFMS:: SetUp Pid : 27458    Tid : 27475
+05-16 16:43:54.153 27458 27458 D VRI[SDLActivity]@1dc9f19: reportDrawFinished seqId=0
+05-16 16:43:54.154  1759  7544 D WindowManager: finishDrawingWindow: Window{8bab0b6 u0 org.libsdl.app/org.libsdl.app.SDLActivity} mDrawState=DRAW_PENDING seqId=0
+05-16 16:43:54.155  1759  1791 V WindowManager: Finish starting ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071}: first real window is shown, no animation
+05-16 16:43:54.156  1759  1791 V WindowManager: Schedule remove starting ActivityRecord{2975188 u0 org.libsdl.app/.SDLActivity t5071} startingWindow=Window{1f32382 u0 Splash Screen org.libsdl.app} animate=true Callers=com.android.server.wm.ActivityRecord.removeStartingWindow:150 com.android.server.wm.WindowState.performShowLocked:147 com.android.server.wm.WindowStateAnimator.commitFinishDrawingLocked:59 com.android.server.wm.DisplayContent$$ExternalSyntheticLambda1.accept$com$android$server$wm$DisplayContent$$ExternalSyntheticLambda40:22 com.android.server.wm.DisplayContent$$ExternalSyntheticLambda1.accept:258 
+05-16 16:43:54.156  2361  2399 D ShellTaskOrganizer: removeStartingWindow, removalInfo=StartingWindowRemovalInfo{taskId=5071 frame=null playRevealAnimation=false roundedCornerRadius=0.0 deferRemoveMode=0 windowlessSurface=false removeImmediately=false}
+05-16 16:43:54.158  1759  1786 D [secipm]: mSecIpmManager report to nap
+05-16 16:43:54.158  1759  1786 I PkgPredictorService-SecIpmManagerServiceImpl: reportToNAP uid:10467 org.libsdl.app/org.libsdl.app.SDLActivity thisTime:546
+05-16 16:43:54.158  1759  1786 D PkgPredictorService-SecIpmManagerServiceImpl: reportToNAP: mHeavyLaunchCounter is false
+05-16 16:43:54.159 27458 27458 I VRI[SDLActivity]@1dc9f19: stopped(true) old = false
+05-16 16:43:54.159 27458 27458 D VRI[SDLActivity]@1dc9f19: WindowStopped on org.libsdl.app/org.libsdl.app.SDLActivity set to true
+05-16 16:43:54.159  1759  2924 D PkgPredictorService-SecIpmManagerServiceImpl: ACTION_FOREGROUND_FINISH_EVENT sCurForegroundApp :org.libsdl.app
+05-16 16:43:54.159 27458 27475 D HWUI    : CacheManager::trimMemory(20)
+05-16 16:43:54.160  1759  7544 V WindowManager: Relayout Window{1f32382 u0 Splash Screen org.libsdl.app}: viewVisibility=8 req=1080x2340 ty=3 d0
+05-16 16:43:54.161 27458 27475 D SurfaceView: 265725116 windowPositionLost, frameNr = 0
+05-16 16:43:54.162  1759  7544 V WindowManager: Relayout hash=1f32382, pid=2361, syncId=-1: mAttrs={(0,0)(fillxfill) sim={adjust=pan} ty=APPLICATION_STARTING fmt=TRANSLUCENT wanim=0x1030001
+05-16 16:43:54.162  1759  7544 V WindowManager:   fl=81030118
+05-16 16:43:54.162  1759  7544 V WindowManager:   pfl=10000010
+05-16 16:43:54.162  1759  7544 V WindowManager:   bhv=1
+05-16 16:43:54.162  1759  7544 V WindowManager:   fitSides=0
+05-16 16:43:54.162  1759  7544 V WindowManager:   frameRateBoostOnTouch=true
+05-16 16:43:54.162  1759  7544 V WindowManager:   dvrrWindowFrameRateHint=true naviIconColor=0}
+05-16 16:43:54.162 27458 27475 I SurfaceView@6070e48: aOrMT: VRI[SDLActivity]@1dc9f19 t = android.view.SurfaceControl$Transaction@9fd9c45 fN = 0 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionLost:1870 android.graphics.RenderNode$CompositePositionUpdateListener.positionLost:414 
+05-16 16:43:54.163 27458 27475 I VRI[SDLActivity]@1dc9f19: mWNT: t=0xb4000070a6b90200 mBlastBufferQueue=0xb4000070a6d31800 fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1723 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionLost:1870 
+05-16 16:43:54.163  2361  2407 I BLASTBufferQueue: [VRI[app]@93093e7#2452](f:0,a:1,s:0) destructor()
+05-16 16:43:54.163  2361  2407 D BufferQueueConsumer: [VRI[app]@93093e7#2452(BLAST Consumer)2452](id:93900000994,api:0,p:-1,c:2361) disconnect
+05-16 16:43:54.164  1759  1786 D DmaBufLeakDetector: system:           163704 kB
+05-16 16:43:54.164  2361  2407 I VRI[app]@93093e7: Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)8 dur=5 res=0x2 s={false 0x0} ch=true seqId=0
+05-16 16:43:54.164  2361  2407 D VRI[app]@93093e7: Not drawing due to not visible. Reason=View.GONE
+05-16 16:43:54.164  2361  2407 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda15@8e8f7cf
+05-16 16:43:54.164  1759  1786 D DmaBufLeakDetector: system-uncached:  236488 kB
+05-16 16:43:54.164 27458 27458 I SurfaceView@6070e48: windowStopped(true) false org.libsdl.app.SDLSurface{6070e48 VFE...... .F...... 0,0-1080,2125} of VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.165  1759  7544 D CoreBackPreview: Window{1f32382 u0 Splash Screen org.libsdl.app}: Setting back callback null
+05-16 16:43:54.165  2361  2407 I VRI[app]@93093e7: dispatchDetachedFromWindow
+05-16 16:43:54.165 27458 27458 I SurfaceView: 101125704 Changes: creating=false format=false size=false visible=true alpha=false hint=false visible=true left=false top=false z=false attached=true lifecycleStrategy=false
+05-16 16:43:54.165  1759  7544 D WindowManager: Starting window removed Window{1f32382 u0 Splash Screen org.libsdl.app}
+05-16 16:43:54.165  1759  1786 I DmaBufLeakDetector: DmaBuf : 400192 KB
+05-16 16:43:54.165 27458 27458 I SurfaceView: 101125704 Cur surface: Surface(name=null mNativeObject=-5476376663047280640)/@0xbffd524
+05-16 16:43:54.165  1759  7544 D InputTransport: Input channel destroyed: '1f32382', fd=1318
+05-16 16:43:54.166  1759  7544 W InputManager-JNI: Input channel object '1f32382 Splash Screen org.libsdl.app (client)' was disposed without first being removed with the input manager!
+05-16 16:43:54.166  1759  7544 D InputTransport: Input channel destroyed: '1f32382', fd=1327
+05-16 16:43:54.166  1759  7544 V WindowManager: Remove Window{1f32382 u0 Splash Screen org.libsdl.app}: mSurfaceController=Surface(name=Splash Screen org.libsdl.app$_2361)/@0xcec50af mAnimatingExit=false mRemoveOnExit=false mHasSurface=true surfaceShowing=false animating=false app-animation=false mDisplayFrozen=false callers=com.android.server.wm.Session.remove:16 android.view.IWindowSession$Stub.onTransact:794 com.android.server.wm.Session.onTransact:1 android.os.Binder.execTransactInternal:1536 android.os.Binder.execTransact:1480 <bottom of call stack> 
+05-16 16:43:54.166  1759  7544 I WindowManager: Destroying surface Surface(name=Splash Screen org.libsdl.app$_2361)/@0xcec50af called by com.android.server.wm.WindowStateAnimator.destroySurface:11 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:54 com.android.server.wm.WindowState.removeImmediately:43 com.android.server.wm.WindowState.removeIfPossible:635 com.android.server.wm.Session.remove:16 android.view.IWindowSession$Stub.onTransact:794 com.android.server.wm.Session.onTransact:1 android.os.Binder.execTransactInternal:1536 
+05-16 16:43:54.166 27458 27458 I SurfaceView: 101125704 surfaceDestroyed
+05-16 16:43:54.166 27458 27458 I SurfaceView@6070e48: surfaceDestroyed callback.size 1 #1 org.libsdl.app.SDLSurface{6070e48 VFE...... .F...... 0,0-1080,2125}
+05-16 16:43:54.166 27458 27458 V SDL     : surfaceDestroyed()
+05-16 16:43:54.167  1759  1786 I ActivityTaskManager: Displayed org.libsdl.app/.SDLActivity for user 0: +546ms
+05-16 16:43:54.167  1759  1786 I Pageboost: Launch time gathered : pid 27458 org.libsdl.app 546
+05-16 16:43:54.167 27458 27458 I SurfaceView@6070e48: updateSurface: mVisible = false mSurface.isValid() = true
+05-16 16:43:54.167 27458 27458 I BLASTBufferQueue: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#1](f:0,a:0,s:0) destructor()
+05-16 16:43:54.168  3135  3135 E pageboostd: Received HALT command code 2
+05-16 16:43:54.168 27458 27458 D BufferQueueConsumer: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#1(BLAST Consumer)1](id:6b4200000001,api:0,p:-1,c:27458) disconnect
+05-16 16:43:54.168  2361  2407 D InputTransport: Input channel destroyed: '1f32382', fd=720
+05-16 16:43:54.168 27458 27458 I SurfaceView@6070e48: releaseSurfaces: viewRoot = VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.169 27458 27458 V SurfaceView: Layout: x=0 y=80 w=1080 h=2125, frame=Rect(0, 0 - 1080, 2125)
+05-16 16:43:54.170 27458 27458 V SDL     : onStop()
+05-16 16:43:54.175 27458 27458 I SurfaceView@6070e48: onWindowVisibilityChanged(4) false org.libsdl.app.SDLSurface{6070e48 VFE...... .F...... 0,0-1080,2125} of VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.175 27458 27458 D SurfaceView@6070e48: updateSurface: surface is not valid
+05-16 16:43:54.175 27458 27458 I SurfaceView@6070e48: releaseSurfaces: viewRoot = VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.177 27458 27475 D HWUI    : CacheManager::trimMemory(20)
+05-16 16:43:54.178  1759  7544 V WindowManager: Relayout Window{8bab0b6 u0 org.libsdl.app/org.libsdl.app.SDLActivity}: viewVisibility=4 req=1080x2340 ty=1 d0
+05-16 16:43:54.179  1759  7544 V WindowManager: Relayout hash=8bab0b6, pid=27458, syncId=-1: mAttrs={(0,0)(fillxfill) sim={adjust=pan} ty=BASE_APPLICATION fmt=TRANSLUCENT wanim=0x1030001 sysuil=true preferMinimalPostProcessing=true
+05-16 16:43:54.179  1759  7544 V WindowManager:   fl=1810900
+05-16 16:43:54.179  1759  7544 V WindowManager:   pfl=10008040
+05-16 16:43:54.179  1759  7544 V WindowManager:   vsysui=100
+05-16 16:43:54.179  1759  7544 V WindowManager:   bhv=1
+05-16 16:43:54.179  1759  7544 V WindowManager:   fitSides=0
+05-16 16:43:54.179  1759  7544 V WindowManager:   frameRateBoostOnTouch=true
+05-16 16:43:54.179  1759  7544 V WindowManager:   dvrrWindowFrameRateHint=true naviIconColor=0}
+05-16 16:43:54.181  1159  1159 I SurfaceFlinger: onHandleDestroyed: name=1f32382 Splash Screen org.libsdl.app#46906, layerId=46906, parentId=0
+05-16 16:43:54.181  1159  1159 I SurfaceFlinger: id=46906 Removed 1f32382 Splash Screen org.libsdl.app#46906 (308)
+05-16 16:43:54.181  1159  1159 I SurfaceFlinger: onHandleDestroyed: name=Splash Screen org.libsdl.app$_2361#46907, layerId=46907, parentId=0
+05-16 16:43:54.181  1159  1159 I SurfaceFlinger: id=46907 Removed Splash Screen org.libsdl.app$_2361#46907 (308)
+05-16 16:43:54.182 27458 27458 I VRI[SDLActivity]@1dc9f19: Relayout returned: old=(0,0,1080,2340) new=(0,0,1080,2340) relayoutAsync=false req=(1080,2340)4 dur=4 res=0x2 s={false 0x0} ch=false seqId=0
+05-16 16:43:54.183 27458 27458 D SurfaceView@6070e48: updateSurface: surface is not valid
+05-16 16:43:54.183 27458 27458 I SurfaceView@6070e48: releaseSurfaces: viewRoot = VRI[SDLActivity]@1dc9f19
+05-16 16:43:54.183 27458 27458 D VRI[SDLActivity]@1dc9f19: applyTransactionOnDraw applyImmediately
+05-16 16:43:54.183 27458 27458 D VRI[SDLActivity]@1dc9f19: Not drawing due to not visible. Reason=View.INVISIBLE
+05-16 16:43:54.184 27458 27458 D VRI[SDLActivity]@1dc9f19: Pending transaction will not be applied in sync with a draw due to view not visible
+05-16 16:43:54.186  1759  7544 V WindowManager: Setting visibility of Window{8bab0b6 u0 org.libsdl.app/org.libsdl.app.SDLActivity}: false, caller=com.android.server.wm.WindowContainer.sendAppVisibilityToClients:19 com.android.server.wm.WindowToken.setClientVisible:49 com.android.server.wm.ActivityRecord.setClientVisible:8 com.android.server.wm.ActivityRecord.activityStopped:201 com.android.server.wm.ActivityClientController.activityStopped:95 
+05-16 16:43:54.187  1759  1789 D SGM:FgCheckThread: getForegroundApp(), foregroundPkgName=org.libsdl.app
+05-16 16:43:54.187  1759  7544 E WindowManager: win=Window{8bab0b6 u0 org.libsdl.app/org.libsdl.app.SDLActivity} destroySurfaces: appStopped=true cleanupOnResume=false win.mWindowRemovalAllowed=false win.mRemoveOnExit=false win.mViewVisibility=4 caller=com.android.server.wm.ActivityRecord.destroySurfaces:25 com.android.server.wm.ActivityRecord.activityStopped:204 com.android.server.wm.ActivityClientController.activityStopped:95 android.app.IActivityClientController$Stub.onTransact:722 com.android.server.wm.ActivityClientController.onTransact:1 android.os.Binder.execTransactInternal:1541 android.os.Binder.execTransact:1480 
+05-16 16:43:54.187  1759  7544 I WindowManager: Destroying surface Surface(name=org.libsdl.app/org.libsdl.app.SDLActivity$_27458)/@0xaccb79a called by com.android.server.wm.WindowStateAnimator.destroySurface:11 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:54 com.android.server.wm.WindowState.destroySurfaceUnchecked:5 com.android.server.wm.WindowState.destroySurface:126 com.android.server.wm.ActivityRecord.destroySurfaces:25 com.android.server.wm.ActivityRecord.activityStopped:204 com.android.server.wm.ActivityClientController.activityStopped:95 android.app.IActivityClientController$Stub.onTransact:722 
+05-16 16:43:54.187 27458 27458 I VRI[SDLActivity]@1dc9f19: handleAppVisibility mAppVisible = true visible = false
+05-16 16:43:54.187  1759  1789 D SGM:FgCheckThread: pkgName: org.libsdl.app is not in foreground
+05-16 16:43:54.190  1759  7544 W ActivityTaskManager: Request to remove task ignored for non-existent task 5069
+05-16 16:43:54.192 27458 27494 I BLASTBufferQueue: [VRI[SDLActivity]@1dc9f19#0](f:0,a:1,s:0) destructor()
+05-16 16:43:54.192 27458 27494 D BufferQueueConsumer: [VRI[SDLActivity]@1dc9f19#0(BLAST Consumer)0](id:6b4200000000,api:0,p:-1,c:27458) disconnect
+05-16 16:43:54.193  1159  2820 I SurfaceFlinger: onHandleDestroyed: name=Bounds for - org.libsdl.app/org.libsdl.app.SDLActivity@0#46910, layerId=46910, parentId=0
+05-16 16:43:54.193  1159  2820 I SurfaceFlinger: id=46910 Removed Bounds for - org.libsdl.app/org.libsdl.app.SDLActivity@0#46910 (308)
+05-16 16:43:54.194  2821  7831 I HoneySpace.RecentTasks: onRecentTasksChanged
+05-16 16:43:54.198  1159  1159 I Layer   : id=46910 Destroyed Bounds for - org.libsdl.app/org.libsdl.app.SDLActivity@0#46910
+05-16 16:43:54.198  1159  1159 I BufferQueueDebug: [Bounds for - org.libsdl.app/org.libsdl.app.SDLActivity@0#46910](this:0xb400006f82a64cb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.198  1159  1159 I Layer   : id=46906 Destroyed 1f32382 Splash Screen org.libsdl.app#46906
+05-16 16:43:54.198  1159  1159 I BufferQueueDebug: [1f32382 Splash Screen org.libsdl.app#46906](this:0xb400006f845fdcb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.198  1159  1159 I Layer   : id=46907 Destroyed Splash Screen org.libsdl.app$_2361#46907
+05-16 16:43:54.198  1159  1159 I BufferQueueDebug: [Splash Screen org.libsdl.app$_2361#46907](this:0xb400006f84608cb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: onHandleDestroyed: name=SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46911, layerId=46911, parentId=0
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: id=46911 Removed SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46911 (305)
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: onHandleDestroyed: name=Background for SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46913, layerId=46913, parentId=0
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: id=46913 Removed Background for SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46913 (305)
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: onHandleDestroyed: name=SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0(BLAST)#46912, layerId=46912, parentId=0
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: id=46912 Removed SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0(BLAST)#46912 (305)
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: onHandleDestroyed: name=org.libsdl.app/org.libsdl.app.SDLActivity$_27458#46909, layerId=46909, parentId=0
+05-16 16:43:54.199  1159  1159 I SurfaceFlinger: id=46909 Removed org.libsdl.app/org.libsdl.app.SDLActivity$_27458#46909 (305)
+05-16 16:43:54.212  1159  1159 I Layer   : id=46909 Destroyed org.libsdl.app/org.libsdl.app.SDLActivity$_27458#46909
+05-16 16:43:54.212  1159  1159 I BufferQueueDebug: [org.libsdl.app/org.libsdl.app.SDLActivity$_27458#46909](this:0xb400006f82964cb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.212  1159  1159 I Layer   : id=46911 Destroyed SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46911
+05-16 16:43:54.212  1159  1159 I BufferQueueDebug: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46911](this:0xb400006f82a6ccb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.212  1159  1159 I Layer   : id=46912 Destroyed SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0(BLAST)#46912
+05-16 16:43:54.212  1159  1159 I BufferQueueDebug: [SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0(BLAST)#46912](this:0xb400006f82a7dcb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.212  1159  1159 I Layer   : id=46913 Destroyed Background for SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46913
+05-16 16:43:54.212  1159  1159 I BufferQueueDebug: [Background for SurfaceView[org.libsdl.app/org.libsdl.app.SDLActivity]@0#46913](this:0xb400006f82ab2cb8,id:-1,api:0,p:-1,c:1159) onDestructor()
+05-16 16:43:54.284  2361  2361 D KeyguardSecIndicationPolicy:  remove Item pos = DEFAULT                             , id =  8927, 
+05-16 16:43:54.284  2361  2361 D KeyguardSecIndicationController: onIndicationChanged() return - keyguard is not visible, skip ownerInfo
+05-16 16:43:54.321  1481  1663 I bauth_FPBAuthService: pcf : 0x1012, 0 ,1 ,0 ,0 ,0 ,0, 8.0.0.4
+05-16 16:43:54.321  1481  1663 I bauth_FPBAuthService: thread id : 1, preenroll_flag : 0, nd cnt : 0, cso : 0, et : 0
+05-16 16:43:54.321  1481  1663 I bauth_FPBAuthService: FPBAuthService::timerHandler complete
+05-16 16:43:54.322  1124 27454 I mtkpower_client: perf_lock_rel, hdl:46913, tid:27454
+05-16 16:43:54.323  1124 27454 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:27454
+05-16 16:43:54.323  1132  1163 I libPowerHal: [perfLockRel] hdl:46913, idx:5
+05-16 16:43:54.324  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:300c000 param:0
+05-16 16:43:54.324  1124 27454 I mtkpower_client: ret_hdl:46917
+05-16 16:43:54.324  1132  1163 I libPowerHal: [perfLockAcq] idx:4 hdl:46917 hint:-1 pid:1124 tid:27454 duration:0 lock_user:vendor.samsung. => ret_hdl:46917
+05-16 16:43:54.324  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:300c000, param:15
+05-16 16:43:54.325  1124 27454 I mtkpower_client: perf_lock_rel, hdl:46914, tid:27454
+05-16 16:43:54.325  1124 27454 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:27454
+05-16 16:43:54.325  1132  1163 I libPowerHal: [perfLockRel] hdl:46914, idx:1
+05-16 16:43:54.325  1132  1163 I libPowerHal: [set_cpuidle] enable:1, fd:15, scn:0xb400007864aafd28
+05-16 16:43:54.325  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:1c3c100 param:1
+05-16 16:43:54.326  1124 27454 I mtkpower_client: ret_hdl:46918
+05-16 16:43:54.326  1132  1163 I libPowerHal: [perfLockAcq] idx:1 hdl:46918 hint:-1 pid:1124 tid:27454 duration:0 lock_user:vendor.samsung. => ret_hdl:46918
+05-16 16:43:54.326  1132  1163 I libPowerHal: [set_cpuidle] enable:0, fd:15, scn:0xb400007864aafd28
+05-16 16:43:54.326  1124 27454 I mtkpower_client: perf_lock_rel, hdl:46915, tid:27454
+05-16 16:43:54.326  1132  1163 I libPowerHal: [get_cpu_dma_latency_value] 0
+05-16 16:43:54.326  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:1c3c100 param:0
+05-16 16:43:54.326  1124 27454 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:27454
+05-16 16:43:54.326  1132  1163 I libPowerHal: [perfLockRel] hdl:46915, idx:2
+05-16 16:43:54.327  1132  1163 I libPowerHal: [setClusterFreq]  set cpu_ctrl cpufreq: -1 -1 -1 -1 
+05-16 16:43:54.327  1124 27454 I mtkpower_client: ret_hdl:46919
+05-16 16:43:54.327  1124 27454 I mtkpower_client: perf_lock_rel, hdl:46916, tid:27454
+05-16 16:43:54.327  1132  1163 I libPowerHal: [perfLockAcq] idx:2 hdl:46919 hint:-1 pid:1124 tid:27454 duration:0 lock_user:vendor.samsung. => ret_hdl:46919
+05-16 16:43:54.327  1132  1163 I libPowerHal: [setClusterFreq] vendor.samsung. set cpufreq[0] min:2000000 max:-1 cpufreq[1] min:-1 max:-1 
+05-16 16:43:54.327  1132  1163 I libPowerHal: [setClusterFreq]  set cpu_ctrl cpufreq: 2000000 -1 -1 -1 
+05-16 16:43:54.328  1124 27454 I mtkpower_client: perf_lock_acq, hdl:0, dur:0, num:2, tid:27454
+05-16 16:43:54.328  1132  1163 I libPowerHal: [perfLockRel] hdl:46916, idx:3
+05-16 16:43:54.329  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:1000000 param:-1
+05-16 16:43:54.329  1124 27454 I mtkpower_client: ret_hdl:46920
+05-16 16:43:54.330  1132  1163 I libPowerHal: [perfLockAcq] idx:3 hdl:46920 hint:-1 pid:1124 tid:27454 duration:0 lock_user:vendor.samsung. => ret_hdl:46920
+05-16 16:43:54.330  1132  1163 I libPowerHal: [setDvfsrcDevFreqOpp] opp:0, freq:4266000000
+05-16 16:43:54.330  1124 27454 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 2784220
+05-16 16:43:54.330  1132  1163 I libPowerHal: [PE] vendor.samsung. update cmd:1000000 param:0
+05-16 16:43:54.587  8578  8852 I PlayCommon: [126] Preparing logs for uploading
+05-16 16:43:54.603 17456 17466 E AuthPII : [RequestTokenManager] getToken() -> BAD_AUTHENTICATION. App: com.android.vending, Service: oauth2:https://www.googleapis.com/auth/googleplay
+05-16 16:43:54.603 17456 17466 E AuthPII : bjco: Long live credential not available.
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at ahwc.a(:com.google.android.gms@261833035@26.18.33 (260400-913931251):1347)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at ahwj.b(:com.google.android.gms@261833035@26.18.33 (260400-913931251):26)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at ahwh.a(:com.google.android.gms@261833035@26.18.33 (260400-913931251):745)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at ahwg.b(:com.google.android.gms@261833035@26.18.33 (260400-913931251):151)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at aavt.d(:com.google.android.gms@261833035@26.18.33 (260400-913931251):107)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at ahpt.getAuthToken(:com.google.android.gms@261833035@26.18.33 (260400-913931251):411)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:248)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:250)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at android.os.Binder.transact(Binder.java:1381)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at cpzs.onTransact(:com.google.android.gms@261833035@26.18.33 (260400-913931251):12)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at android.os.Binder.transact(Binder.java:1381)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at cbwu.onTransact(:com.google.android.gms@261833035@26.18.33 (260400-913931251):169)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1541)
+05-16 16:43:54.603 17456 17466 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1480)
+05-16 16:43:54.604 17456 17466 E AuthPII : Message is Long live credential not available.
+05-16 16:43:54.604 17456 17466 E AuthPII : bjco: Long live credential not available.
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at ahwc.a(:com.google.android.gms@261833035@26.18.33 (260400-913931251):1347)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at ahwj.b(:com.google.android.gms@261833035@26.18.33 (260400-913931251):26)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at ahwh.a(:com.google.android.gms@261833035@26.18.33 (260400-913931251):745)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at ahwg.b(:com.google.android.gms@261833035@26.18.33 (260400-913931251):151)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at aavt.d(:com.google.android.gms@261833035@26.18.33 (260400-913931251):107)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at ahpt.getAuthToken(:com.google.android.gms@261833035@26.18.33 (260400-913931251):411)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:248)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:250)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at android.os.Binder.transact(Binder.java:1381)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at cpzs.onTransact(:com.google.android.gms@261833035@26.18.33 (260400-913931251):12)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at android.os.Binder.transact(Binder.java:1381)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at cbwu.onTransact(:com.google.android.gms@261833035@26.18.33 (260400-913931251):169)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at android.os.Binder.execTransactInternal(Binder.java:1541)
+05-16 16:43:54.604 17456 17466 E AuthPII : 	at android.os.Binder.execTransact(Binder.java:1480)
+05-16 16:43:54.614  1759  7544 D CompatChangeReporter: Compat change id reported: 311208629; UID 10220; state: ENABLED
+05-16 16:43:54.616 17456 17466 I Auth    : (REDACTED) [GetToken] GetToken failed for app=%s with userRecoverable status: %s 
+05-16 16:43:54.617 17456 17466 W Auth    : [ChimeraGetToken] exception while trying to fetch auth tokens for app=com.google.android.gsf, scope=oauth2:https://www.googleapis.com/auth/googleplay [CONTEXT service_id=153 ]
+05-16 16:43:54.617 17456 17466 W Auth    : ahwb: GetToken failed with status code and recovery intent: BadAuthentication
+05-16 16:43:54.617 17456 17466 W Auth    : 	at ahwg.b(:com.google.android.gms@261833035@26.18.33 (260400-913931251):352)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at aavt.d(:com.google.android.gms@261833035@26.18.33 (260400-913931251):107)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at ahpt.getAuthToken(:com.google.android.gms@261833035@26.18.33 (260400-913931251):411)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at android.accounts.AbstractAccountAuthenticator$Transport.getAuthToken(AbstractAccountAuthenticator.java:248)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at android.accounts.IAccountAuthenticator$Stub.onTransact(IAccountAuthenticator.java:250)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at android.os.Binder.transact(Binder.java:1381)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at cpzs.onTransact(:com.google.android.gms@261833035@26.18.33 (260400-913931251):12)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at android.os.Binder.transact(Binder.java:1381)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at cbwu.onTransact(:com.google.android.gms@261833035@26.18.33 (260400-913931251):169)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at android.os.Binder.execTransactInternal(Binder.java:1541)
+05-16 16:43:54.617 17456 17466 W Auth    : 	at android.os.Binder.execTransact(Binder.java:1480)
+05-16 16:43:54.617 17456 17466 W GLSActivity: [GmsAccountAuthenticatorImpl] error status while fetching token:BadAuthentication
+05-16 16:43:54.620  8578  8852 W PlayCommon: [126] Deferring log upload because couldn't retrieve auth token
+05-16 16:43:54.640  1124 27456 I mtkpower_client: perf_lock_rel, hdl:46917, tid:27456
+05-16 16:43:54.641  1124 27456 I mtkpower_client: perf_lock_rel, hdl:46918, tid:27456
+05-16 16:43:54.641  1132  1163 I libPowerHal: [perfLockRel] hdl:46917, idx:4
+05-16 16:43:54.641  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:300c000 param:0
+05-16 16:43:54.642  1124 27456 I mtkpower_client: perf_lock_rel, hdl:46919, tid:27456
+05-16 16:43:54.642  1132  1163 I libPowerHal: [perfLockRel] hdl:46918, idx:1
+05-16 16:43:54.642  1132  1163 I libPowerHal: [set_cpuidle] enable:1, fd:15, scn:0xb400007864aafd28
+05-16 16:43:54.642  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:1c3c100 param:1
+05-16 16:43:54.643  1124 27456 I mtkpower_client: perf_lock_rel, hdl:46920, tid:27456
+05-16 16:43:54.643  1132  1163 I libPowerHal: [perfLockRel] hdl:46919, idx:2
+05-16 16:43:54.643  1132  1163 I libPowerHal: [setClusterFreq]  set cpu_ctrl cpufreq: -1 -1 -1 -1 
+05-16 16:43:54.644  1124 27456 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 1572665
+05-16 16:43:54.644  1132  1163 I libPowerHal: [perfLockRel] hdl:46920, idx:3
+05-16 16:43:54.644  1132  1163 I libPowerHal: [PD] vendor.samsung. update cmd:1000000 param:-1
+05-16 16:43:54.723  1116 28361 D C2MtkBufferManager: over 5000ms not request from VCodec but callback hooked, slow BM fetch thread. Last get time was 10722062ms ago, block status(0, 6, 15).
+05-16 16:43:55.051  4254  4404 I SDHMS:l : no app is Resumed!!! mResumedPackages.size = 0
+05-16 16:43:55.124  1124 27455 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 9110060
+05-16 16:43:55.321  1481  1663 I bauth_FPBAuthService: pcf : 0x1012, 0 ,1 ,0 ,0 ,0 ,0, 8.0.0.4
+05-16 16:43:55.322  1481  1663 I bauth_FPBAuthService: thread id : 1, preenroll_flag : 0, nd cnt : 0, cso : 0, et : 0
+05-16 16:43:55.322  1481  1663 I bauth_FPBAuthService: FPBAuthService::timerHandler complete
+05-16 16:43:55.438   574   574 D io_stats: !@   8,32 r 18596473 266776900 w 11687806 128120204 d 1242919 78561900 f 1089671 1594635 iot 15584920 0 th 0 0 0 pt 0 inp 0 0 252196.539
+05-16 16:43:55.438   574   574 D io_stats: !@ Read_top(KB): system_server(1759) 120 cmd(27444) 44 re-initialized>(27458) 40
+05-16 16:43:55.438   574   574 D io_stats: !@ Write_top(KB): kworker/u16:1(19740) 56 re-initialized>(27458) 8 ding:background(8578) 4
+05-16 16:43:55.472 27458 27463 I org.libsdl.app: Compiler allocated 7379KB to compile void android.view.ViewRootImpl.performTraversals()
+05-16 16:43:55.697  1116 28361 D C2MtkBufferManager: over 5000ms not request from VCodec but callback hooked, slow BM fetch thread. Last get time was 10723036ms ago, block status(0, 6, 15).
+05-16 16:43:55.781  1759  3130 D FreecessController: com.teslacoilsw.launcher(10310) is important[11]
+05-16 16:43:56.324  1481  1663 I bauth_FPBAuthService: pcf : 0x1012, 0 ,1 ,0 ,0 ,0 ,0, 8.0.0.4
+05-16 16:43:56.324  1481  1663 I bauth_FPBAuthService: thread id : 1, preenroll_flag : 0, nd cnt : 0, cso : 0, et : 0
+05-16 16:43:56.324  1481  1663 I bauth_FPBAuthService: FPBAuthService::timerHandler complete
+05-16 16:43:56.686  1116 28361 D C2MtkBufferManager: over 5000ms not request from VCodec but callback hooked, slow BM fetch thread. Last get time was 10724025ms ago, block status(0, 6, 15).

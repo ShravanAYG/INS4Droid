@@ -1,4 +1,5 @@
-#include <SDL_ttf.h>
+#include "SDL.h"
+#include "SDL_ttf.h"
 #include <stdio.h>
 #include <pthread.h>
 #include <stdbool.h>
@@ -7,9 +8,17 @@
 #include <strings.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <errno.h>
+#include <string.h>
 #ifdef __ANDROID__
 #include <sys/stat.h>
+#include <android/log.h>
+#define LOG_TAG "INS4DroidNative"
+#define ALOG(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#else
+#define ALOG(...) printf(__VA_ARGS__)
 #endif
+#include "map.h"
 
 const int nameWrapWidth = 200;
 const int lineSpacing = 8;
@@ -23,10 +32,10 @@ SDL_Color Gray2 = { 30, 30, 30, 255 };
 SDL_Color Red = { 255, 80, 80, 255 };
 SDL_Color White = { 255, 255, 255, 255 };
 SDL_Rect btnStandard = { 0, 0, 250, 80 };
-double accel[3] = { 0 }, gyro[3] = { 0 };
-
-double north;
-int zerod = 0;
+static float accel[3] = { 0 }, gyro[3] = { 0 }, mag[3] = { 0 };
+static float s1 = 0, s2 = 0, s3 = 0;	// Calibration offsets
+static float north = 0;
+static int zerod = 0;
 
 static pthread_mutex_t fontMutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t northMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -127,6 +136,16 @@ static SDL_Surface *getSensorSurface(SDL_Rect datDispBox, SDL_Sensor **sensors,
 	pthread_mutex_unlock(&northMutex);
 
 	SDL_SensorGetData(sensors[0], data, 3);
+	pthread_mutex_lock(&zerodMutex);
+	if (zerod) {
+		s1 = data[0];
+		s2 = data[1];
+		s3 = data[2];
+		zerod = 0;
+		SDL_Log("Zeroed! Offsets: %.2f, %.2f, %.2f", s1, s2, s3);
+	}
+	pthread_mutex_unlock(&zerodMutex);
+
 	pthread_mutex_lock(&accelMutex);
 	accel[0] = data[0];
 	accel[1] = data[1];
@@ -157,53 +176,18 @@ static void *sensorThread(void *arg)
 	uint64_t t = 0;
 
 	while (running) {
-		con->fd =
-		    accept(con->sfd, (struct sockaddr *)con->cli, con->len);
-		if (con->fd < 0) {
-			if (!running)
-				break;
-			continue;
-		}
-
-		while (running) {
-			char buff[256];
-			pthread_mutex_lock(&northMutex);
-			pthread_mutex_lock(&accelMutex);
-			double angle = north;
-			snprintf(buff, sizeof(buff),
-				 "%llu [ANGLE: %f], [ACC: %f, %f, %f], [GYRO: %f, %f, %f]\n",
-				 t, angle, accel[0], accel[1], accel[2],
-				 gyro[0], gyro[1], gyro[2]);
-			pthread_mutex_unlock(&accelMutex);
-			pthread_mutex_unlock(&northMutex);
-
-			ssize_t sent = write(con->fd, buff, strlen(buff));
-			if (sent <= 0) {
-				close(con->fd);
-				con->fd = -1;
-				break;
-			}
-
-			printf("Sent %ld bytes\n", sent);
-
-			SDL_Surface *surf = getSensorSurface(args->datDispBox,
-							     args->sensors,
-							     args->numSensors,
-							     args->font,
-							     con);
-			pthread_mutex_lock(&surfMutex);
-			if (latestSurface)
-				SDL_FreeSurface(latestSurface);
-			latestSurface = surf;
-			pthread_mutex_unlock(&surfMutex);
-			usleep(35000);
-			t++;
-		}
-
-		if (con->fd >= 0) {
-			close(con->fd);
-			con->fd = -1;
-		}
+		SDL_Surface *surf = getSensorSurface(args->datDispBox,
+						     args->sensors,
+						     args->numSensors,
+						     args->font,
+						     con);
+		pthread_mutex_lock(&surfMutex);
+		if (latestSurface)
+			SDL_FreeSurface(latestSurface);
+		latestSurface = surf;
+		pthread_mutex_unlock(&surfMutex);
+		usleep(16666);	// ~60 FPS
+		t++;
 	}
 
 	free(args);
@@ -230,10 +214,21 @@ static bool copyAssetToInternal(const char *assetName, char outPath[],
 	SDL_snprintf(outPath, outPathLen, "%s/fonts/%s", base, assetName);
 
 	SDL_RWops *check = SDL_RWFromFile(outPath, "rb");
+	if (check) {
+		SDL_RWclose(check);
+		return true;
+	}
 
 	SDL_RWops *in = SDL_RWFromFile(assetName, "rb");
+	if (!in) {
+		return false;
+	}
 
 	SDL_RWops *out = SDL_RWFromFile(outPath, "wb");
+	if (!out) {
+		SDL_RWclose(in);
+		return false;
+	}
 
 	char buf[8192];
 	size_t n;
@@ -248,7 +243,7 @@ static bool copyAssetToInternal(const char *assetName, char outPath[],
 	SDL_RWclose(in);
 	SDL_RWclose(out);
 
-	return true;
+	return ok;
 }
 
 static TTF_Font *openFontPortable(const char *name, int ptsize)
@@ -466,7 +461,7 @@ static SDL_Surface *getCompassSurface(SDL_Rect db, TTF_Font *font, double angle)
 	return dataSur;
 }
 
-double s1 = 0, s2 = 0, s3 = 0;
+
 
 static SDL_Surface *getAccelSurface(SDL_Rect db, TTF_Font *font)
 {
@@ -549,8 +544,10 @@ static SDL_Surface *getAccelSurface(SDL_Rect db, TTF_Font *font)
 	return dataSur;
 }
 
-int SDL_main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
+	ALOG("ENTERING SDL_main! argc=%d", argc);
+	SDL_Log("SDL_Log: ENTERING SDL_main!");
 	SDL_SetHint(SDL_HINT_TOUCH_MOUSE_EVENTS, "1");
 	running = true;
 
@@ -558,10 +555,12 @@ int SDL_main(int argc, char *argv[])
 		SDL_Log("SDL_Init failed: %s", SDL_GetError());
 		return 1;
 	}
+	SDL_Log("SDL_Init succeeded");
 	if (TTF_Init() != 0) {
 		SDL_Log("TTF_Init failed: %s", TTF_GetError());
 		return 1;
 	}
+	SDL_Log("TTF_Init succeeded");
 
 	SDL_Window *win = SDL_CreateWindow("SDL Sensors",
 					   SDL_WINDOWPOS_UNDEFINED,
@@ -571,15 +570,21 @@ int SDL_main(int argc, char *argv[])
 		SDL_Log("CreateWindow failed: %s", SDL_GetError());
 		return 1;
 	}
+	SDL_Log("SDL_CreateWindow succeeded");
 
 	SDL_Renderer *ren = SDL_CreateRenderer(win, -1,
 					       SDL_RENDERER_ACCELERATED |
 					       SDL_RENDERER_PRESENTVSYNC);
+	if (!ren) {
+		SDL_Log("SDL_CreateRenderer failed: %s", SDL_GetError());
+		return 1;
+	}
+	SDL_Log("SDL_CreateRenderer succeeded");
 
 	pixfmt = SDL_GetWindowPixelFormat(win);
 
 	// ---- Font (Android-safe) ----
-	TTF_Font *font = openFontPortable("sans.ttf", 16);
+	TTF_Font *font = openFontPortable("sans.ttf", 24);
 
 	int winW, winH, mx, my;
 	SDL_GetWindowSize(win, &winW, &winH);
@@ -592,22 +597,34 @@ int SDL_main(int argc, char *argv[])
 	SDL_Rect datDispBoxScrl = (SDL_Rect) datDispBox;
 	datDispBoxScrl.x = 0;
 	datDispBoxScrl.y = 0;
-	int sockfd;
+	int sockfd = -1;
 	struct sockaddr_in servaddr, cli;
 	socklen_t len = sizeof(cli);
+/*
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	if (sockfd == -1) {
+		SDL_Log("Socket creation failed");
+		return 1;
+	}
+	SDL_Log("Socket created");
+
 	int opt = 1;
 	setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	servaddr.sin_port = htons(6969);
+	SDL_Log("Binding socket...");
 	if (bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
-		perror("bind");
-		close(sockfd);
-		return 1;
+		SDL_Log("bind failed: %s (non-fatal)", strerror(errno));
+		// close(sockfd);
+		// return 1;
+	} else {
+		listen(sockfd, 5);
+		SDL_Log("Socket listening");
 	}
-	listen(sockfd, 5);
+*/
 	struct con1 *c = malloc(sizeof(struct con1));
 	c->fd = -1;
 	c->buf = NULL;
@@ -653,6 +670,20 @@ int SDL_main(int argc, char *argv[])
 	SDL_Texture *fntName = SDL_CreateTextureFromSurface(ren, fntNmSur);
 	SDL_TouchID t2 = SDL_GetTouchDevice(2);
 
+	INSMap *insMap = map_create(50.0, pixfmt);
+	int mapVisible = 1;
+	SDL_Texture *btnMapTex =
+	    createBtnTexture(ren, "Map", font, btnTypeNorm);
+	SDL_Texture *btnSaveTex =
+	    createBtnTexture(ren, "Save PNG", font, btnTypeNorm);
+	SDL_Rect btnMapPos = btnStandard;
+	btnMapPos.x = btnZeroPos.x + btnZeroPos.w + 20;
+	btnMapPos.y = 50;
+	SDL_Rect btnSavePos = btnStandard;
+	btnSavePos.x = btnMapPos.x + btnMapPos.w + 20;
+	btnSavePos.y = 50;
+
+
 	pthread_t tid;
 	if (pthread_create(&tid, NULL, sensorThread, args) != 0) {
 		SDL_Log("pthread_create failed");
@@ -673,6 +704,9 @@ int SDL_main(int argc, char *argv[])
 	    { compassDispBox.x + compassDispBox.w + 50, compassDispBox.y, 500,
 		200
 	};
+	int mapSize = 400;
+	SDL_Rect mapDispBox =
+	    { accelDispBox.x, accelDispBox.y + 220, mapSize, mapSize };
 
 	int scrollUpHeld = 0;
 	int scrollDownHeld = 0;
@@ -752,8 +786,52 @@ int SDL_main(int argc, char *argv[])
 						zerod = 1;
 						pthread_mutex_unlock
 						    (&zerodMutex);
+						if (insMap)
+							map_reset(insMap);
 					}
 
+					/* Map toggle button */
+/*
+					if (tx >= btnMapPos.x
+					    && tx <=
+					    (btnMapPos.x + btnMapPos.w)
+					    && ty >= btnMapPos.y
+					    && ty <=
+					    (btnMapPos.y + btnMapPos.h)) {
+						mapVisible = !mapVisible;
+					}
+
+					if (tx >= btnSavePos.x
+					    && tx <=
+					    (btnSavePos.x + btnSavePos.w)
+					    && ty >= btnSavePos.y
+					    && ty <=
+					    (btnSavePos.y + btnSavePos.h)) {
+						if (insMap) {
+							char path[1024];
+							const char *base =
+							    SDL_AndroidGetInternalStoragePath();
+							if (base) {
+								SDL_snprintf
+								    (path,
+								     sizeof
+								     (path),
+								     "%s/ins_map.png",
+								     base);
+								if (map_save_png
+								    (insMap,
+								     path) ==
+								    0)
+									SDL_Log
+									    ("Map saved: %s",
+									     path);
+								else
+									SDL_Log
+									    ("Map save failed");
+							}
+						}
+					}
+*/
 					if (tx >= btnScrollPos.x
 					    && tx <=
 					    (btnScrollPos.x + btnScrollPos.w)
@@ -888,6 +966,33 @@ int SDL_main(int argc, char *argv[])
 		}
 		pthread_mutex_unlock(&surfMutex);
 
+		/* --- Update and render map --- */
+		static SDL_Texture *mapTex = NULL;
+		static uint32_t lastMapTrailCount = 0;
+		if (insMap && mapVisible) {
+			pthread_mutex_lock(&accelMutex);
+			double mapAx = accel[0] - s1;
+			double mapAy = accel[1] - s2;
+			pthread_mutex_unlock(&accelMutex);
+			map_update(insMap, mapAx, mapAy, angle);
+			
+			/* Only update texture if trail changed or map reset */
+			if (insMap->trailCount != lastMapTrailCount || mapTex == NULL) {
+				if (mapTex) SDL_DestroyTexture(mapTex);
+				pthread_mutex_lock(&fontMutex);
+				map_render(insMap, font);
+				pthread_mutex_unlock(&fontMutex);
+				mapTex = SDL_CreateTextureFromSurface(ren, insMap->surface);
+				lastMapTrailCount = insMap->trailCount;
+			}
+
+			if (mapTex) {
+				SDL_RenderCopy(ren, mapTex, NULL, &mapDispBox);
+				SDL_SetRenderDrawColor(ren, 0, 200, 100, 255);
+				SDL_RenderDrawRect(ren, &mapDispBox);
+			}
+		}
+
 		if (txDat && cmpTex) {
 			if (Sabove) {
 				SDL_RenderCopy(ren, cmpTex, NULL,
@@ -932,6 +1037,12 @@ int SDL_main(int argc, char *argv[])
 			SDL_RenderCopy(ren, btnClsTex, NULL, &btnClsPos);
 			SDL_RenderCopy(ren, btnReposTex, NULL, &btnReposPos);
 			SDL_RenderCopy(ren, btnZerodTex, NULL, &btnZeroPos);
+/*
+			if (btnMapTex)
+				SDL_RenderCopy(ren, btnMapTex, NULL, &btnMapPos);
+			if (btnSaveTex)
+				SDL_RenderCopy(ren, btnSaveTex, NULL, &btnSavePos);
+*/
 
 			SDL_Rect fnNamePos =
 			    { winW - 300, winH - 50, fntNmSur->w, fntNmSur->h };
@@ -963,6 +1074,13 @@ int SDL_main(int argc, char *argv[])
 		SDL_DestroyTexture(fntName);
 		SDL_DestroyTexture(btnZerodTex);
 	}
+/*
+	if (btnMapTex)
+		SDL_DestroyTexture(btnMapTex);
+	if (btnSaveTex)
+		SDL_DestroyTexture(btnSaveTex);
+	map_destroy(insMap);
+*/
 
 	SDL_FreeSurface(fntNmSur);
 	for (int i = 0; i < numSensors; i++) {

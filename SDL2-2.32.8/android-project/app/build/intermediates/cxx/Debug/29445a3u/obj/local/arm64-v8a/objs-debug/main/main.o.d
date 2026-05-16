@@ -50,7 +50,9 @@
   /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_timer.h \
   /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_version.h \
   /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_locale.h \
-  /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_misc.h
+  /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_misc.h \
+  /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL2_ttf/SDL_ttf.h \
+  /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/map.h
 
 /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL.h:
 
@@ -153,3 +155,7 @@
 /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_locale.h:
 
 /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL/include/SDL_misc.h:
+
+/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/../SDL2_ttf/SDL_ttf.h:
+
+/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/src/map.h:

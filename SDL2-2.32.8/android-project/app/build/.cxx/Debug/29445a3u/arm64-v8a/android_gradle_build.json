@@ -51,6 +51,44 @@
       "artifactName": "main",
       "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libmain.so"
     },
+    "SDL2_ttf-debug-arm64-v8a": {
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003darm64-v8a",
+        "NDK_ALL_ABIS\u003darm64-v8a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libSDL2_ttf.so"
+      ],
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "SDL2_ttf",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libSDL2_ttf.so"
+    },
+    "freetype-debug-arm64-v8a": {
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003darm64-v8a",
+        "NDK_ALL_ABIS\u003darm64-v8a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libfreetype.a"
+      ],
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "freetype",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libfreetype.a"
+    },
     "SDL2-debug-arm64-v8a": {
       "buildCommandComponents": [
         "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
@@ -88,6 +126,25 @@
       "abi": "arm64-v8a",
       "artifactName": "cpufeatures",
       "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libcpufeatures.a"
+    },
+    "harfbuzz-debug-arm64-v8a": {
+      "buildCommandComponents": [
+        "/home/shravan/Android/Sdk/ndk/25.1.8937393/ndk-build",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Android.mk",
+        "NDK_APPLICATION_MK\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/jni/Application.mk",
+        "APP_ABI\u003darm64-v8a",
+        "NDK_ALL_ABIS\u003darm64-v8a",
+        "NDK_DEBUG\u003d1",
+        "NDK_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj",
+        "NDK_LIBS_OUT\u003d/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib",
+        "APP_PLATFORM\u003dandroid-19",
+        "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libharfbuzz.a"
+      ],
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "harfbuzz",
+      "output": "/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/obj/local/arm64-v8a/libharfbuzz.a"
     }
   },
   "toolchains": {
@@ -100,6 +157,7 @@
     "c"
   ],
   "cppFileExtensions": [
+    "cc",
     "cpp"
   ]
 }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-100:12
-INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-100:12
-INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-100:12
-INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-100:12
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-102:12
+INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-102:12
+INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-102:12
+INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:5:1-102:12
 	package
 		INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -54,55 +54,63 @@ uses-permission#android.permission.VIBRATE
 ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:49:5-66
 	android:name
 		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:49:22-63
+uses-permission#android.permission.INTERNET
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:50:5-67
+	android:name
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:50:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:51:5-79
+	android:name
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:51:22-76
 application
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:62:5-98:19
-INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:62:5-98:19
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:5-100:19
+INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:5-100:19
 	android:extractNativeLibs
 		INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml
 	android:label
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:62:18-50
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:18-50
 	android:hardwareAccelerated
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:66:9-43
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:68:9-43
 	android:icon
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:63:9-43
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:65:9-43
 	android:allowBackup
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:64:9-35
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:66:9-35
 	android:theme
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:65:9-40
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:67:9-40
 activity#org.libsdl.app.SDLActivity
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:72:9-97:20
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:74:9-99:20
 	android:screenOrientation
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:76:13-50
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:78:13-56
 	android:label
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:73:13-45
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:75:13-45
 	android:launchMode
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:75:13-48
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:77:13-48
 	android:exported
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:79:13-36
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:81:13-36
 	android:configChanges
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:77:13-156
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:79:13-156
 	android:alwaysRetainTaskState
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:74:13-49
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:76:13-49
 	android:preferMinimalPostProcessing
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:78:13-55
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:80:13-55
 	android:name
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:72:19-45
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:74:19-45
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:81:13-84:29
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:83:13-86:29
 action#android.intent.action.MAIN
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:82:17-69
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:84:17-69
 	android:name
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:82:25-66
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:84:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:83:17-77
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:85:17-77
 	android:name
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:83:27-74
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:85:27-74
 intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:86:13-88:29
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:88:13-90:29
 action#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:87:17-90
+ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:89:17-90
 	android:name
-		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:87:25-87
+		ADDED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml:89:25-87
 uses-sdk
 INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/src/main/AndroidManifest.xml

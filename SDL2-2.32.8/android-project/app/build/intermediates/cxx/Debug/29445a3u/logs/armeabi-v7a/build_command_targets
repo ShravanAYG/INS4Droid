@@ -9,4 +9,5 @@
   NDK_LIBS_OUT=/home/shravan/Documents/Projects/INS4Droid/SDL2-2.32.8/android-project/app/build/intermediates/cxx/Debug/29445a3u/lib \
   APP_PLATFORM=android-19 \
   SDL2 \
+  SDL2_ttf \
   main
